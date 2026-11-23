@@ -56,6 +56,47 @@ function related_articles(array $a, int $limit = 3): array
     } catch (Throwable $e) { return []; }
 }
 
+
+function latest_articles(int $excludeId, int $limit = 4): array
+{
+    try {
+        return rows(article_select() . ' WHERE ' . VISIBLE_SQL . ' AND a.id <> :id ORDER BY a.published_at DESC, a.id DESC LIMIT ' . (int)$limit, [':now' => now(), ':id' => $excludeId]);
+    } catch (Throwable $e) { return []; }
+}
+
+function category_articles(array $a, int $limit = 3): array
+{
+    if ((int)($a['category_id'] ?? 0) <= 0) { return []; }
+    try {
+        return rows(article_select() . ' WHERE ' . VISIBLE_SQL . ' AND a.id <> :id AND a.category_id = :cat ORDER BY a.published_at DESC, a.id DESC LIMIT ' . (int)$limit, [':now' => now(), ':id' => (int)$a['id'], ':cat' => (int)$a['category_id']]);
+    } catch (Throwable $e) { return []; }
+}
+
+/** Insere um bloco de chamada após o N-ésimo parágrafo (só se o texto for longo o bastante). */
+function inject_after_paragraph(string $html, string $block, int $n = 4, int $min = 7): string
+{
+    if (!class_exists('DOMDocument') || trim($html) === '') { return $html; }
+    try {
+        $prev = libxml_use_internal_errors(true);
+        $d = new DOMDocument('1.0', 'UTF-8');
+        $d->loadHTML('<?xml encoding="utf-8"?><div id="mbroot">' . $html . '</div>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        libxml_clear_errors(); libxml_use_internal_errors($prev);
+        $root = $d->getElementById('mbroot');
+        if (!$root) { return $html; }
+        $ps = [];
+        foreach ($root->childNodes as $c) { if ($c instanceof DOMElement && strtolower($c->nodeName) === 'p' && trim($c->textContent) !== '') { $ps[] = $c; } }
+        if (count($ps) < $min) { return $html; }
+        $f = $d->createDocumentFragment();
+        $f->appendXML('<div class="art-inline-slot" data-slot="1"></div>');
+        $ref = $ps[$n - 1]->nextSibling;
+        $slot = $f->firstChild;
+        if ($ref) { $root->insertBefore($slot, $ref); } else { $root->appendChild($slot); }
+        $out = '';
+        foreach ($root->childNodes as $c) { $out .= $d->saveHTML($c); }
+        return str_replace('<div class="art-inline-slot" data-slot="1"></div>', $block, $out);
+    } catch (Throwable $e) { return $html; }
+}
+
 /* ---------- Peças de HTML no layout do site ---------- */
 function article_url(array $a): string { return url('conteudos/' . $a['slug']); }
 
@@ -145,6 +186,11 @@ function render_article_page(array $a, bool $preview = false): void
     $full = $title . ' · MB Consultoria e Assessoria Política';
     $iso = $a['published_at'] ? date('c', strtotime((string)$a['published_at'])) : date('c');
     $related = $preview ? [] : related_articles($a);
+    $sameCat = $preview ? [] : category_articles($a, 3);
+    if ($sameCat) { $ids = array_map(fn($x) => (int)$x['id'], $sameCat); $related = array_values(array_filter($related, fn($x) => !in_array((int)$x['id'], $ids, true))); }
+    $latest = $preview ? [] : latest_articles((int)$a['id'], 4);
+    $inlineBox = '<aside class="art-inline"><div><b>Quer aplicar isso na sua comunicação?</b><span>Converse com a MB sobre estratégia e posicionamento.</span></div><a class="btn btn-gold" href="' . e($h) . '#contato">Falar com a MB</a></aside>';
+    $inlineHtml = inject_after_paragraph((string)$a['content'], $inlineBox);
     $shareText = rawurlencode($a['title'] . ' ' . $canon);
     $ld = json_encode([
         '@context' => 'https://schema.org', '@type' => 'BlogPosting', 'headline' => $a['title'], 'description' => $desc,
@@ -180,48 +226,82 @@ function render_article_page(array $a, bool $preview = false): void
 <link rel="stylesheet" href="<?= e(url('css/site.css')) ?>">
 <link rel="stylesheet" href="<?= e(url('css/cms.css')) ?>">
 </head>
-<body>
+<body class="art-page">
 <?php if ($preview): ?><div class="preview-bar">Pré-visualização — este artigo ainda não está publicado.</div><?php endif; ?>
 <?php include __DIR__ . '/partials/header.php'; ?>
 <main class="art-main">
   <div class="ph-wrap">
-    <div class="ph-hdr solo hatch">
-      <img class="hero-mark" src="<?= e(url('img/logo-simbolo.png')) ?>" alt="">
-      <div class="ph-in">
-        <div>
-          <a class="art-back" href="<?= e($h) ?>#conteudos"><?= icon('arrow-left') ?>Conteúdos e Análises</a>
-          <?php if (!empty($a['cat_name'])): ?><div class="label light"><i></i><i></i><?= e($a['cat_name']) ?></div><?php endif; ?>
-          <h1 class="art-h1"><?= e($a['title']) ?></h1>
-          <?php if (trim((string)($a['summary'] ?? '')) !== ''): ?><p class="lead"><?= e($a['summary']) ?></p><?php endif; ?>
-          <div class="art-meta">
-            <?php if (!empty($a['author'])): ?><span><?= icon('user') ?><?= e($a['author']) ?></span><?php endif; ?>
-            <?php if (!empty($a['published_at'])): ?><span><?= icon('calendar') ?><?= e(fmt_date($a['published_at'])) ?></span><?php endif; ?>
-            <span><?= icon('clock') ?><?= reading_minutes((string)$a['content']) ?> min de leitura</span>
-          </div>
+    <header class="ph-hdr art-hero<?= $cover === '' ? ' hatch' : '' ?>">
+      <?php if ($cover !== ''): ?><img class="art-hero-img" src="<?= e($cover) ?>" alt=""><?php else: ?><img class="hero-mark" src="<?= e(url('img/logo-simbolo.png')) ?>" alt=""><?php endif; ?>
+      <div class="art-hero-in">
+        <a class="art-back" href="<?= e($h) ?>#conteudos"><?= icon('arrow-left') ?>Conteúdos e Análises</a>
+        <?php if (!empty($a['cat_name'])): ?><span class="pill gold"><?= e($a['cat_name']) ?></span><?php endif; ?>
+        <h1 class="art-h1"><?= e($a['title']) ?></h1>
+        <div class="art-meta">
+          <?php if (!empty($a['author'])): ?><span><?= icon('user') ?><?= e($a['author']) ?></span><?php endif; ?>
+          <?php if (!empty($a['published_at'])): ?><span><?= icon('calendar') ?><?= e(fmt_date($a['published_at'])) ?></span><?php endif; ?>
+          <span><?= icon('clock') ?><?= reading_minutes((string)$a['content']) ?> min de leitura</span>
         </div>
       </div>
-    </div>
+    </header>
   </div>
 
-  <div class="blk">
+  <div class="blk art-body">
     <div class="wrap">
-      <div class="big-card art-card">
-        <?php if ($cover !== ''): ?><figure class="art-cover"><img src="<?= e($cover) ?>" alt="<?= e($a['title']) ?>"></figure><?php endif; ?>
-        <div class="art-content"><?= $a['content'] /* já sanitizado ao salvar e na pré-visualização */ ?></div>
-        <div class="art-share">
-          <b>Compartilhe</b>
-          <div class="art-share-btns">
-            <a href="https://wa.me/?text=<?= $shareText ?>" target="_blank" rel="noopener" aria-label="Compartilhar no WhatsApp"><?= icon('whatsapp') ?></a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<?= rawurlencode($canon) ?>" target="_blank" rel="noopener" aria-label="Compartilhar no Facebook"><?= icon('facebook') ?></a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?= rawurlencode($canon) ?>" target="_blank" rel="noopener" aria-label="Compartilhar no LinkedIn"><?= icon('linkedin') ?></a>
-            <a href="https://twitter.com/intent/tweet?text=<?= rawurlencode($a['title']) ?>&url=<?= rawurlencode($canon) ?>" target="_blank" rel="noopener" aria-label="Compartilhar no X"><?= icon('x') ?></a>
-            <button type="button" data-copy="<?= e($canon) ?>" aria-label="Copiar o link"><?= icon('link') ?><span>Copiar link</span></button>
+      <div class="art-grid">
+        <article class="art-col">
+          <?php if (trim((string)($a['summary'] ?? '')) !== ''): ?><p class="art-lead"><?= e($a['summary']) ?></p><?php endif; ?>
+          <div class="art-content"><?= $inlineHtml /* já sanitizado ao salvar e na pré-visualização */ ?></div>
+
+          <div class="art-take">
+            <div class="label"><i></i><i></i>Próximo passo</div>
+            <h3>Sua comunicação política precisa de método?</h3>
+            <p>Converse com a MB e descubra como transformar presença em confiança — e confiança em resultado.</p>
+            <a class="btn btn-navy" href="<?= e($h) ?>#contato">Agende uma conversa <?= icon('arrow-right') ?></a>
           </div>
-        </div>
+
+          <div class="art-share">
+            <b>Compartilhe</b>
+            <div class="art-share-btns">
+              <a href="https://wa.me/?text=<?= $shareText ?>" target="_blank" rel="noopener" aria-label="Compartilhar no WhatsApp"><?= icon('whatsapp') ?></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=<?= rawurlencode($canon) ?>" target="_blank" rel="noopener" aria-label="Compartilhar no Facebook"><?= icon('facebook') ?></a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?= rawurlencode($canon) ?>" target="_blank" rel="noopener" aria-label="Compartilhar no LinkedIn"><?= icon('linkedin') ?></a>
+              <a href="https://twitter.com/intent/tweet?text=<?= rawurlencode($a['title']) ?>&url=<?= rawurlencode($canon) ?>" target="_blank" rel="noopener" aria-label="Compartilhar no X"><?= icon('x') ?></a>
+              <button type="button" data-copy="<?= e($canon) ?>" aria-label="Copiar o link"><?= icon('link') ?><span>Copiar link</span></button>
+            </div>
+          </div>
+        </article>
+
+        <aside class="art-side">
+          <div class="side-box side-cta hatch">
+            <div class="label light"><i></i><i></i>MB Consultoria</div>
+            <h3>Estratégia, imagem e posicionamento político.</h3>
+            <p>Fale com quem entende de Cuiabá e Brasília.</p>
+            <a class="btn btn-gold" href="<?= e($h) ?>#contato">Falar com a MB</a>
+          </div>
+<?php if ($latest): ?>
+          <div class="side-box">
+            <h4>Mais recentes</h4>
+            <ul class="side-list">
+<?php foreach ($latest as $l): ?>
+              <li><a href="<?= e(article_url($l)) ?>"><?php if (!empty($l['cat_name'])): ?><small><?= e($l['cat_name']) ?></small><?php endif; ?><span><?= e($l['title']) ?></span></a></li>
+<?php endforeach; ?>
+            </ul>
+          </div>
+<?php endif; ?>
+        </aside>
       </div>
     </div>
   </div>
 
+<?php if ($sameCat): ?>
+  <div class="blk" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><div class="label"><i></i><i></i>Na mesma categoria</div><h2>Mais em <?= e($a['cat_name']) ?></h2></div>
+      <div class="posts"><?= implode('', array_map('render_post_card', $sameCat)) ?></div>
+    </div>
+  </div>
+<?php endif; ?>
 <?php if ($related): ?>
   <div class="blk" style="padding-top:0">
     <div class="wrap">
