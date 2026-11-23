@@ -1,0 +1,19 @@
+# pesados / temporários
+zip/
+shots/
+vid/
+mt/
+tools/
+libs/
+cmp/
+node_modules/
+*.zip
+*.mp4
+# gerados no servidor
+php/uploads/20*/
+php/inc/installed.lock
+php/inc/logs/
+*.db
+# backups locais do código-fonte
+src/*.before-*.html
+__pycache__/

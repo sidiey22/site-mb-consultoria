@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function(){var d=document.documentElement;d.classList.add('mb-js');
+var seen=false;try{seen=sessionStorage.getItem('mb-pre')==='1'}catch(e){}
+if(seen){d.classList.add('mb-pre-seen')}else{d.classList.add('mb-lock')}
+setTimeout(function(){d.classList.remove('mb-lock')},4000);})();
+</script>
+<title>MB Consultoria e Assessoria Política</title>
+<meta name="description" content="Comunicação política com propósito. Estratégia que aproxima. Consultoria em Comunicação Governamental e Marketing Político em Cuiabá e Brasília.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Identidade MB: azul-marinho, dourado e branco.
+     Layout: fundo claro, cards brancos com cantos arredondados (às vezes um dentro do outro),
+     blocos azuis com bordas listradas, faixas de serviços correndo entre as seções. */
+  --navy:#192347;
+  --navy-deep:#0f1630;
+  --navy-card:#212d58;
+  --gold:#c9a063;
+  --gold-lt:#f2c47e;
+  --gold-grad:linear-gradient(100deg,#ba9357 0%,#f7c67d 100%);
+  --bg:#f2f3f6;
+  --card:#ffffff;
+  --line:#e2e5ee;
+  --ink:#141a2e;
+  --mute:#5e6478;
+  --display:"DM Serif Display",Georgia,"Times New Roman",serif;
+  --body:"Gotham","Montserrat","Helvetica Neue",Arial,sans-serif;
+  --r-xl:28px; --r:20px; --r-sm:14px;
+  --wrap:1240px;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:400;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.ic{width:20px;height:20px;flex:none}
+.ic-b{width:18px;height:18px}
+
+/* ---------- tipografia ---------- */
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;letter-spacing:-.005em;text-wrap:balance;color:var(--navy)}
+h1{font-size:clamp(38px,4.2vw,60px)}
+h2{font-size:clamp(30px,3.3vw,46px)}
+h3{font-size:clamp(21px,1.7vw,25px);line-height:1.18}
+.it{font-style:italic}
+.gold-t{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,1.35vw,19px);line-height:1.65;max-width:60ch}
+p+p{margin-top:1em}
+.mute{color:var(--mute)}
+.measure{max-width:62ch}
+.dark,.dark h1,.dark h2,.dark h3{color:#fff}
+.dark .mute,.dark p{color:#c3c7d6}
+
+/* etiqueta de seção: dois pontos + nome */
+.label{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:500;color:var(--navy)}
+.label i{width:11px;height:11px;border-radius:50%;background:var(--gold-grad);display:block}
+.label i+i{margin-left:-6px;background:var(--navy);box-shadow:0 0 0 2px var(--bg)}
+.dark .label,.label.light{color:#e9e6dd}
+.dark .label i+i,.label.light i+i{background:#fff;box-shadow:0 0 0 2px var(--navy)}
+
+/* ---------- botões ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;transition:transform .25s,background .25s,color .25s,border-color .25s;white-space:nowrap}
+.btn .ic{width:17px;height:17px;transition:transform .25s}
+.btn:hover .ic{transform:translateX(3px)}
+.btn-navy{background:var(--navy);color:var(--gold-lt)}
+.btn-navy:hover{background:var(--navy-deep)}
+.btn-gold{background:var(--gold-grad);color:var(--navy-deep)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-white:hover{transform:translateY(-2px)}
+.btn-line{border-color:rgba(242,196,126,.7);color:var(--gold-lt)}
+.btn-line:hover{background:rgba(242,196,126,.1)}
+.btn-ghost{border-color:var(--navy);color:var(--navy)}
+.btn-ghost:hover{background:var(--navy);color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--gold);color:var(--navy)}
+.link .ic{width:16px;height:16px}
+.dark .link{color:var(--gold-lt)}
+.circle{width:42px;height:42px;border-radius:50%;background:var(--gold-grad);color:var(--navy-deep);display:grid;place-items:center;flex:none;transition:transform .3s}
+.circle .ic{width:18px;height:18px}
+a:hover > .circle, a:hover .circle{transform:rotate(45deg)}
+.pill{display:inline-flex;align-items:center;font-size:12px;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--navy);color:var(--gold-lt)}
+.pill.gold{background:var(--gold-grad);color:var(--navy-deep)}
+
+/* ---------- barra superior + cabeçalho ---------- */
+.topbar{background:var(--navy-deep);color:#c9ccd8;font-size:12.5px}
+.topbar .wrap{display:flex;justify-content:space-between;gap:16px;height:38px;align-items:center}
+.topbar .l{display:flex;gap:22px;align-items:center}
+.topbar a{text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.topbar a:hover{color:var(--gold-lt)}
+.topbar .ic{width:14px;height:14px;color:var(--gold)}
+.topbar .r{color:var(--gold-lt);letter-spacing:.12em;text-transform:uppercase;font-size:11.5px;font-weight:600}
+@media (max-width:760px){.topbar .l a:nth-child(n+2){display:none}}
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.brand img{height:34px;width:auto}
+.nav{display:flex;align-items:center;gap:6px}
+.nav a{color:var(--navy);text-decoration:none;font-size:14px;font-weight:500;padding:9px 14px;border-radius:999px;transition:background .2s}
+.nav a:hover{background:var(--bg)}
+.nav a[aria-current="page"]{background:var(--bg);font-weight:600}
+.nav .btn{margin-left:10px;padding:11px 20px;color:var(--gold-lt)}
+.nav .btn:hover,.nav .btn[aria-current="page"]{background:var(--navy-deep);color:var(--gold-lt)}
+.menu-btn{display:none;background:none;border:0;color:var(--navy);padding:8px}
+.menu-btn .ic{width:28px;height:28px}
+@media (max-width:1080px){
+  .menu-btn{display:block}
+  .nav{position:fixed;inset:76px 0 auto 0;background:#fff;flex-direction:column;align-items:stretch;padding:18px 20px 24px;gap:4px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .35s;z-index:-1;box-shadow:0 20px 40px rgba(15,22,48,.08)}
+  .nav.open{transform:none}
+  .nav a{font-size:16px;padding:12px 14px}
+  .nav .btn{margin:8px 0 0;justify-content:center}
+}
+
+/* ---------- estrutura de seções ---------- */
+section.page{display:none}
+section.page.on{display:block;animation:in .5s ease}
+@keyframes in{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:none}}
+.blk{padding:clamp(64px,8vw,112px) 0}
+.blk.tight{padding:clamp(48px,6vw,80px) 0}
+.blk.white{background:#fff}
+.sec-head{display:grid;gap:16px;margin-bottom:44px}
+.sec-head.center{justify-items:center;text-align:center}
+.sec-head.center h2{max-width:20ch}
+.sec-head.center h2.h-wide{max-width:min(100%,40ch);text-wrap:balance}
+.sec-head.split{grid-template-columns:1.1fr .9fr;align-items:end;gap:40px}
+.sec-head.split .side{display:grid;gap:18px;justify-items:start}
+@media (max-width:860px){.sec-head.split{grid-template-columns:1fr;gap:18px}}
+
+/* bloco azul com bordas listradas */
+.band{background:var(--navy);color:#fff;position:relative}
+.hatch{position:relative}
+.hatch::before,.hatch::after{content:"";position:absolute;left:0;right:0;height:14px;pointer-events:none;
+  background:repeating-linear-gradient(135deg,rgba(242,196,126,.2) 0 1.5px,transparent 1.5px 9px)}
+.hatch::before{top:0}.hatch::after{bottom:0}
+
+/* faixa de serviços correndo */
+.marquee{background:var(--navy);color:#fff;overflow:hidden;white-space:nowrap;border-block:1px solid rgba(242,196,126,.18)}
+.marquee .track{display:inline-flex;align-items:center;gap:34px;padding:17px 0;animation:mq 48s linear infinite;will-change:transform}
+.marquee:hover .track{animation-play-state:paused}
+.marquee span{font-size:clamp(17px,1.6vw,22px);font-weight:600;letter-spacing:-.01em}
+.marquee .ic{width:22px;height:22px;color:var(--gold-lt)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- cards ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px}
+.card .in{border:1px solid var(--line);border-radius:var(--r-sm);padding:20px 22px}
+.ph{border-radius:var(--r-sm);overflow:hidden;background:var(--navy);position:relative}
+.ph img{width:100%;height:100%;object-fit:cover}
+.chip-ic{width:48px;height:48px;border-radius:50%;background:var(--gold-grad);color:var(--navy-deep);display:grid;place-items:center;flex:none}
+.chip-ic .ic{width:22px;height:22px}
+
+/* ---------- hero da Home ---------- */
+.hero-wrap{padding:16px 16px 0}
+.hero{position:relative;overflow:hidden;background:var(--navy-deep);color:#ece7dc;isolation:isolate;border-radius:var(--r-xl);max-width:1600px;margin:0 auto}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:78% 50%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,#0f1630 0%,rgba(15,22,48,.95) 30%,rgba(15,22,48,.7) 54%,rgba(15,22,48,.26) 80%,rgba(15,22,48,.12) 100%),
+  linear-gradient(0deg,rgba(15,22,48,.85) 0%,rgba(15,22,48,0) 34%)}
+.hero-in{max-width:var(--wrap);margin:0 auto;padding:clamp(88px,11vw,140px) clamp(28px,5vw,76px) clamp(96px,11vw,140px);position:relative}
+.hero-txt{max-width:900px}
+.hero h1{color:#fff;margin:22px 0 22px;font-size:clamp(34px,3.4vw,50px);line-height:1.1}
+.hero h1 .gold-t{display:block}
+.hero p{color:#d3d5de}
+.hero .btns{margin-top:34px}
+.hero-chip{position:absolute;right:clamp(20px,4vw,56px);bottom:clamp(20px,4vw,48px);display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 20px;color:#fff;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.hero-chip i{width:6px;height:6px;border-radius:50%;background:var(--gold-lt);display:block}
+@media (max-width:860px){
+  .hero-wrap{padding:10px 10px 0}
+  .hero-bg img{object-position:68% 50%}
+  .hero-bg::after{background:linear-gradient(180deg,rgba(15,22,48,.82) 0%,rgba(15,22,48,.9) 55%,#0f1630 100%)}
+  .hero-chip{position:static;display:inline-flex;margin-top:30px}
+}
+
+/* ---------- cabeçalho das páginas internas ---------- */
+.ph-wrap{padding:16px 16px 0}
+.ph-hdr{background:var(--navy-deep);color:#ece7dc;border-radius:var(--r-xl);max-width:1600px;margin:0 auto;overflow:hidden;position:relative}
+.ph-in{max-width:var(--wrap);margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:clamp(64px,8vw,104px) clamp(28px,5vw,76px)}
+.ph-hdr.solo .ph-in{grid-template-columns:1fr}
+.ph-hdr h1{color:#fff;margin:20px 0 22px}
+.ph-hdr p{color:#c9ccd8}
+.ph-photo{border-radius:22px;overflow:hidden;aspect-ratio:4/4.4;max-height:500px;background:var(--navy);border:6px solid rgba(255,255,255,.06)}
+.ph-photo img{width:100%;height:100%;object-fit:cover}
+.hero-mark{position:absolute;right:-100px;bottom:-150px;width:520px;opacity:.05;pointer-events:none}
+@media (max-width:860px){.ph-wrap{padding:10px 10px 0}.ph-in{grid-template-columns:1fr;gap:40px}.ph-photo{max-height:420px}}
+
+/* ---------- Home: sobre ---------- */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.collage{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:200px 200px;gap:12px}
+.collage .ph{height:100%}
+.collage .a{grid-row:1/3}
+.collage .gold-tile{border-radius:var(--r-sm);background:var(--gold-grad);display:grid;place-items:center;position:relative;overflow:hidden}
+.collage .gold-tile img{width:46%;opacity:.95;filter:brightness(.25) sepia(1) hue-rotate(190deg) saturate(3)}
+.about .big{font-size:clamp(19px,1.6vw,22px);line-height:1.55;font-weight:500;color:var(--navy);margin:18px 0 18px}
+@media (max-width:900px){.about{grid-template-columns:1fr;gap:40px}.collage{grid-template-rows:170px 170px}}
+
+/* ---------- Home: soluções ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.svc{grid-column:span 2;display:flex;flex-direction:column;gap:14px;text-decoration:none;color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:10px;transition:background .3s,border-color .3s}
+.svc:nth-child(n+4){grid-column:span 3}
+.svc .in{border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);padding:22px;display:flex;flex-direction:column;gap:14px;height:100%}
+.svc .top{display:flex;justify-content:space-between;align-items:center}
+.svc .n{font-family:var(--display);font-size:30px;color:rgba(242,196,126,.35);line-height:1}
+.svc h3{color:#fff}
+.svc p{color:#c3c7d6;font-size:15px}
+.svc .go{margin-top:auto;display:flex;justify-content:flex-end}
+.svc:hover{background:rgba(255,255,255,.09);border-color:rgba(242,196,126,.35)}
+.svc.hl{background:var(--gold-grad);border-color:transparent;color:var(--navy-deep)}
+.svc.hl .in{border-color:rgba(15,22,48,.18)}
+.svc.hl h3{color:var(--navy-deep)}
+.svc.hl p{color:#3a2f1a}
+.svc.hl .n{color:rgba(15,22,48,.3)}
+.svc.hl .chip-ic,.svc.hl .circle{background:var(--navy);color:var(--gold-lt)}
+@media (max-width:960px){.svc-grid{grid-template-columns:1fr 1fr}.svc,.svc:nth-child(n+4){grid-column:span 1}.svc:last-child{grid-column:1/-1}}
+@media (max-width:600px){.svc-grid{grid-template-columns:1fr}.svc:last-child{grid-column:auto}}
+
+/* ---------- diferenciais ---------- */
+.why{display:grid;grid-template-columns:.8fr 1.2fr;gap:16px;align-items:stretch}
+.why-photo{position:relative;border-radius:var(--r-xl);overflow:hidden;background:var(--navy);min-height:600px;isolation:isolate}
+.why-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:34% 50%}
+.why-photo::after{content:"";position:absolute;inset:auto 0 0 0;height:34%;background:linear-gradient(180deg,transparent,rgba(15,22,48,.55));z-index:1;pointer-events:none}
+.why-badge{position:absolute;right:18px;bottom:18px;z-index:2;width:84px;height:84px;border-radius:50%;background:var(--gold-grad);display:grid;place-items:center;box-shadow:0 0 0 6px rgba(255,255,255,.9)}
+.why-badge img{position:static;width:44%;height:auto;object-fit:contain;filter:brightness(.25) sepia(1) hue-rotate(190deg) saturate(3)}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;grid-auto-rows:1fr}
+.bt{position:relative;overflow:hidden;isolation:isolate;border-radius:var(--r);padding:26px 26px 24px;display:flex;flex-direction:column;min-height:196px;transition:transform .45s cubic-bezier(.2,.9,.25,1),box-shadow .45s}
+.bt > *{position:relative}
+.bt::before{content:"";position:absolute;inset:0;background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),rgba(242,196,126,.26),transparent 62%);opacity:0;transition:opacity .35s;pointer-events:none}
+.bt:hover{transform:translateY(-6px);box-shadow:0 22px 40px rgba(15,22,48,.18)}
+.bt:hover::before{opacity:1}
+.bt .chip-ic{margin-bottom:auto}
+.bt .chip-ic svg{transition:transform .55s cubic-bezier(.2,.9,.25,1)}
+.bt:hover .chip-ic svg{transform:rotate(-18deg) scale(1.12)}
+.bt .wm{position:absolute;right:-26px;bottom:-30px;width:170px;height:170px;opacity:.07;transition:transform .7s cubic-bezier(.2,.9,.25,1),opacity .4s;pointer-events:none}
+.bt .wm svg{width:100%;height:100%;stroke-width:1}
+.bt:hover .wm{transform:translate(-8px,-8px) rotate(-10deg) scale(1.06);opacity:.12}
+.bt h3{font-size:24px;margin:34px 0 8px}
+.bt p{font-size:14.5px;line-height:1.6}
+.bt.navy{background:var(--navy);color:#fff}.bt.navy h3{color:#fff}.bt.navy p{color:#c3c7d6}
+.bt.deep{background:var(--navy-deep);color:#fff;box-shadow:inset 0 0 0 1px rgba(242,196,126,.28)}.bt.deep h3{color:#fff}.bt.deep p{color:#c3c7d6}
+.bt.soft{background:var(--bg);border:1px solid var(--line)}.bt.soft h3{color:var(--navy)}.bt.soft p{color:var(--mute,#5b6178)}.bt.soft .wm{color:var(--navy)}
+.bt.navy .wm,.bt.deep .wm{color:#fff}
+.bt.gold{background:var(--gold-grad);color:var(--navy-deep)}.bt.gold p{color:var(--navy-deep);font-size:17px;font-weight:600;line-height:1.5;max-width:28ch}
+.bt.gold .btn{margin-top:20px;align-self:flex-start}
+.bt.gold::before{background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.4),transparent 62%)}
+.bt.c-a{grid-column:1/5}.bt.c-a h3{font-size:30px}.bt.c-a p{max-width:44ch;font-size:15.5px}
+.bt.c-b{grid-column:5/7}
+.bt.c-c{grid-column:1/3}
+.bt.c-d{grid-column:3/7}.bt.c-d p{max-width:46ch}
+.bt.c-e{grid-column:1/4}
+.bt.c-f{grid-column:4/7}
+.diff-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.diff{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:24px 22px}
+.diff .chip-ic{margin-bottom:22px}
+.diff h3{color:#fff;font-size:22px;margin-bottom:10px}
+.diff p{color:#c3c7d6;font-size:14.5px;line-height:1.6}
+@media (max-width:1000px){.why{grid-template-columns:1fr}.why-photo{min-height:520px}.why-photo img{object-position:30% 50%}.diff-grid{grid-template-columns:1fr 1fr}.bento{grid-template-columns:1fr 1fr}.bt.c-a,.bt.c-b,.bt.c-c,.bt.c-d,.bt.c-e,.bt.c-f{grid-column:auto}.bt.c-a,.bt.c-f{grid-column:1/-1}}
+@media (max-width:600px){.bento{grid-template-columns:1fr}.bt.c-a,.bt.c-f{grid-column:auto}.bt{min-height:0}.bt h3{margin-top:24px}.diff-grid{grid-template-columns:1fr}.why-photo{min-height:460px}}
+
+/* ---------- clientes ---------- */
+.client-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:8px;transition:transform .35s,box-shadow .35s}
+.client-card:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(15,22,48,.1)}
+.client-card .ph{aspect-ratio:425/539}
+.client-card.ph-only .ph{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:20px;background:radial-gradient(120% 70% at 50% 18%,#26346a 0%,var(--navy) 55%,var(--navy-deep) 100%)}
+.client-card.ph-only .ph::before{content:"";position:absolute;left:22%;right:22%;top:14%;bottom:40%;border:1px solid var(--gold);border-radius:999px 999px 0 0;opacity:.55}
+.client-card.ph-only b{font-family:var(--display);font-weight:400;color:#fff;font-size:24px;line-height:1.1;position:relative}
+.client-card.ph-only small{color:var(--gold-lt);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-top:8px;position:relative}
+.clients{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+/* carrossel de experiências (sem barra de rolagem) */
+.rail{position:relative;overflow:hidden;padding:40px 0 64px;margin-bottom:-24px;margin-top:-6px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.rail-track{display:flex;width:max-content;cursor:grab;touch-action:pan-y;will-change:transform;padding-left:20px}
+.rail-track.drag{cursor:grabbing}
+.rail .client-card{flex:0 0 214px;margin-right:-34px;position:relative;z-index:1;box-shadow:0 12px 26px rgba(15,22,48,.14);transform-origin:50% 70%;user-select:none;-webkit-user-select:none;transition:transform .55s cubic-bezier(.2,.9,.25,1),translate .55s cubic-bezier(.2,.9,.25,1),box-shadow .55s,filter .55s}
+.rail .client-card img{-webkit-user-drag:none;pointer-events:none}
+.rail .client-card:hover{transform:translateY(-18px) scale(1.14);z-index:6;box-shadow:0 34px 56px rgba(15,22,48,.3)}
+.rail .client-card:hover + .client-card{translate:26px 0}
+.rail .client-card:has(+ .client-card:hover){translate:-26px 0}
+@media (hover:hover){.rail:hover .client-card:not(:hover){filter:brightness(.93) saturate(.9)}}
+.rail-ctl{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:4px}
+.rail-btn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--navy);display:grid;place-items:center;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.rail-btn svg{width:18px;height:18px}
+.rail-btn:hover{background:var(--navy);color:var(--gold-lt);border-color:var(--navy)}
+.rail-btn:active{transform:scale(.94)}
+.rail-btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.rail-btn span{display:grid;place-items:center}
+.rail-btn .i-play{display:none}
+.rail-btn[aria-pressed="true"] .i-play{display:block}.rail-btn[aria-pressed="true"] .i-pause{display:none}
+@media (max-width:700px){.rail .client-card{flex-basis:168px;margin-right:-24px}.rail .client-card:hover{transform:none}}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--navy);padding:10px 18px;border-radius:999px;font-size:14px;font-weight:500}
+.chip:hover{border-color:var(--navy)}
+.chip[aria-pressed="true"]{background:var(--navy);color:var(--gold-lt);border-color:var(--navy)}
+
+/* ---------- sedes (cards) ---------- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.place-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:10px;text-decoration:none;display:flex;flex-direction:column;gap:12px;transition:box-shadow .35s}
+.place-card:hover{box-shadow:0 18px 40px rgba(15,22,48,.1)}
+.place-card .ph{aspect-ratio:16/10}
+.place-card .ph.empty{display:grid;place-items:center;background:radial-gradient(90% 80% at 70% 20%,#26346a,var(--navy-deep))}
+.place-card .ph.empty img{width:30%;height:auto;opacity:.18;object-fit:contain}
+.place-card .row{padding:4px 8px 0}
+.place-card .row2{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-top:1px solid var(--line);padding:16px 8px 8px}
+.place-card h3{margin-bottom:6px}
+.place-card p{color:var(--mute);font-size:14.5px}
+@media (max-width:760px){.duo{grid-template-columns:1fr}}
+
+/* ---------- CTA ---------- */
+.cta-card{background:var(--navy);border-radius:var(--r-xl);overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr;align-items:stretch;color:#fff}
+.cta-card .t{padding:clamp(40px,5vw,64px)}
+.cta-card h2{color:#fff;margin:18px 0 14px;max-width:16ch}
+.cta-card p{color:#c3c7d6;max-width:46ch}
+.cta-card .btns{margin-top:28px}
+.cta-card .ph{border-radius:0;min-height:300px}
+@media (max-width:860px){.cta-card{grid-template-columns:1fr}.cta-card .ph{min-height:220px}}
+
+/* ---------- duas colunas com foto ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.two.rev > :first-child{order:2}
+.two .photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;border:8px solid #fff;box-shadow:0 0 0 1px var(--line);background:var(--navy)}
+.two .photo img{width:100%;height:100%;object-fit:cover}
+.two .photo.tall{aspect-ratio:4/5}
+.big-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(18px,2.4vw,28px)}
+.big-card .two{gap:48px}
+.big-card .two .photo{border:0;box-shadow:none;border-radius:var(--r)}
+.big-card .measure{padding:10px 8px}
+@media (max-width:860px){.two{grid-template-columns:1fr;gap:32px}.two.rev > :first-child{order:0}}
+
+/* ---------- equipe ---------- */
+.lead-member{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.lead-member .ph{aspect-ratio:3/4}
+.role{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:12px 0 22px;line-height:1.6}
+.quote-card{background:var(--gold-grad);border-radius:var(--r-xl);padding:clamp(36px,5vw,64px);color:var(--navy-deep)}
+.quote-card .ic{width:40px;height:40px;margin-bottom:18px}
+.quote-card p{font-family:var(--display);font-size:clamp(30px,3.6vw,50px);line-height:1.12;max-width:22ch;text-wrap:balance}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.member{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:10px;text-align:left;color:inherit;display:flex;flex-direction:column;gap:10px;width:100%;height:100%;transition:background .35s,border-color .35s}
+.member .ph{aspect-ratio:4/4.6}
+.member .in{border:1px solid var(--line);border-radius:var(--r-sm);padding:16px 18px;transition:border-color .35s;flex:1}
+.member h3{font-size:22px}
+.member .role{margin:8px 0 12px;font-size:11.5px}
+.member .more{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--navy)}
+.member .more .ic{width:15px;height:15px}
+.member:hover{background:var(--navy);border-color:var(--navy)}
+.member:hover .in{border-color:rgba(255,255,255,.15)}
+.member:hover h3{color:#fff}
+.member:hover .more{color:var(--gold-lt)}
+@media (max-width:860px){.lead-member{grid-template-columns:1fr;gap:28px}.team{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.team{grid-template-columns:1fr}}
+
+/* ---------- soluções ---------- */
+.subnav{position:sticky;top:76px;z-index:20;background:rgba(242,243,246,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.subnav .wrap{display:flex;gap:8px;overflow-x:auto;height:64px;align-items:center;scrollbar-width:none}
+.subnav a{white-space:nowrap;text-decoration:none;font-size:13.5px;font-weight:500;color:var(--navy);padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:#fff}
+.subnav a:hover{border-color:var(--navy)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.compare > div{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:clamp(26px,3.4vw,44px)}
+.compare .exec{background:var(--navy);border-color:var(--navy);color:#fff}
+.compare .exec h3{color:#fff}
+.compare h3{font-size:clamp(26px,2.5vw,34px);margin-bottom:16px}
+.compare p{font-size:15.5px;color:var(--mute)}
+.compare .exec p{color:#c3c7d6}
+.tag{display:inline-flex;font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;background:var(--bg);color:var(--navy);margin-bottom:22px;border:1px solid var(--line)}
+.exec .tag{background:var(--gold-grad);color:var(--navy-deep);border:0}
+.deliv-h{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-top:30px;color:var(--gold)}
+.deliv{list-style:none;margin-top:14px;display:grid;gap:8px}
+.deliv li{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:12px;background:var(--bg);font-size:15px;font-weight:500;color:var(--navy)}
+.exec .deliv li{background:rgba(255,255,255,.06);color:#fff}
+.deliv .ic{width:18px;height:18px;color:var(--gold)}
+@media (max-width:860px){.compare{grid-template-columns:1fr}}
+.camp-list{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.camp-list li{display:flex;gap:12px;align-items:center;padding:16px 18px;border-radius:var(--r-sm);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:15px;font-weight:500;color:#fff}
+.camp-list .ic{color:var(--gold-lt);width:20px;height:20px}
+@media (max-width:860px){.camp-list{grid-template-columns:1fr}}
+.anchor{scroll-margin-top:150px}
+
+/* ---------- sedes (página) ---------- */
+.unit{display:grid;grid-template-columns:.85fr 1.15fr;gap:18px;align-items:start}
+.unit-info{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:clamp(26px,3vw,38px)}
+.band .unit-info{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+.unit-info h2{margin:16px 0 10px}
+.addr{display:flex;gap:14px;margin:24px 0;padding:18px;border-radius:var(--r-sm);background:var(--bg)}
+.band .addr{background:rgba(255,255,255,.06);color:#fff}
+.addr .ic{color:var(--gold);margin-top:3px}
+.addr b{display:block;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;color:var(--gold)}
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:118px;gap:10px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:10px}
+.band .gallery{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+.gallery button{border:0;padding:0;border-radius:12px;overflow:hidden;background:var(--navy);position:relative}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery button:hover img{transform:scale(1.04)}
+.g-a{grid-column:span 4;grid-row:span 3}.g-b{grid-column:span 2;grid-row:span 3}.g-c{grid-column:span 2;grid-row:span 2}
+.gallery .empty{border:1px dashed rgba(255,255,255,.22);border-radius:12px;display:grid;place-items:center;text-align:center;color:#aeb3c6;font-size:13px;padding:12px}
+.gallery .empty .ic{color:var(--gold);margin:0 auto 8px;display:block}
+.gal-h{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 14px 4px}
+@media (max-width:960px){.unit{grid-template-columns:1fr}}
+@media (max-width:620px){.gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px}.g-a{grid-column:span 2;grid-row:span 2}.g-b,.g-c{grid-column:span 1;grid-row:span 1}}
+
+/* ---------- conteúdos ---------- */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.post{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:10px;display:flex;flex-direction:column}
+.post .ph{aspect-ratio:4/3}
+.post .ph img{transition:transform .6s}
+.post:hover .ph img{transform:scale(1.04)}
+.post .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:14px 8px 12px;font-size:12.5px;color:var(--mute);font-variant-numeric:tabular-nums}
+.post .meta span:last-child{display:flex;gap:6px;align-items:center}
+.post .meta .ic{width:14px;height:14px}
+.post .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;border-top:1px solid var(--line);margin:0 8px;padding:14px 0 6px}
+.post h3{margin:0 8px 8px}
+.post > p{color:var(--mute);font-size:15px;margin:0 8px 16px}
+.model-note{display:inline-flex;gap:10px;align-items:center;font-size:13.5px;color:var(--mute);border:1px dashed #c9cdd9;border-radius:999px;padding:8px 16px;margin-bottom:26px;background:#fff}
+.model-note .ic{width:16px;height:16px;color:var(--gold)}
+.insta{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;background:var(--navy);border-radius:var(--r-xl);padding:clamp(28px,4vw,48px);color:#fff}
+.insta h2{color:#fff;margin-top:14px;font-size:clamp(28px,3vw,40px)}
+.insta p{color:#c3c7d6;margin-top:8px}
+@media (max-width:900px){.posts{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.posts{grid-template-columns:1fr}.insta{grid-template-columns:1fr}}
+
+/* ---------- contato ---------- */
+.contact{display:grid;grid-template-columns:.95fr 1.05fr;gap:18px;align-items:stretch}
+.contact .side{background:var(--navy-deep);border-radius:var(--r-xl);padding:clamp(36px,4.5vw,60px);color:#fff;position:relative;overflow:hidden}
+.contact .side h1{color:#fff;font-size:clamp(38px,4vw,56px);margin:18px 0 18px}
+.contact .side p{color:#c9ccd8;max-width:46ch}
+.clist{list-style:none;margin-top:30px;display:grid;gap:10px}
+.clist li{display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:var(--r-sm);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+.clist .ic{color:var(--gold-lt)}
+.clist .ico{width:42px;height:42px;border-radius:50%;background:rgba(242,196,126,.12);display:grid;place-items:center;flex:none}
+.clist small{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt);font-weight:600}
+.clist a{text-decoration:none;overflow-wrap:anywhere}
+.clist a:hover{color:var(--gold-lt)}
+.units-mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;font-size:14.5px;color:#c9ccd8}
+.units-mini > div{padding:16px;border-radius:var(--r-sm);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+.units-mini b{display:block;color:#fff;font-family:var(--display);font-weight:400;font-size:22px;margin-bottom:4px}
+.formside{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(30px,4vw,52px)}
+.formside h2{font-size:clamp(28px,2.8vw,38px);margin:14px 0 6px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 18px;margin-top:28px}
+.f{display:grid;gap:8px}
+.f.full{grid-column:1/-1}
+label{font-size:13px;font-weight:600;color:var(--navy)}
+input,select,textarea{font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:13px 14px;border-radius:12px;transition:border-color .25s,background .25s}
+textarea{resize:vertical;min-height:120px}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--gold);background:#fff}
+.consent{grid-column:1/-1;display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--mute);font-weight:400}
+.consent input{margin-top:4px;accent-color:var(--navy)}
+.consent a{color:var(--navy)}
+.formmsg{grid-column:1/-1;display:none;border-left:3px solid var(--gold);background:var(--bg);padding:14px 18px;font-size:14.5px;border-radius:0 12px 12px 0}
+.formmsg.show{display:block}
+.subhead{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt);margin-top:34px}
+@media (max-width:960px){.contact{grid-template-columns:1fr}}
+@media (max-width:560px){form{grid-template-columns:1fr}.units-mini{grid-template-columns:1fr}}
+
+/* ---------- rodapé ---------- */
+footer{background:#fff;border-top:1px solid var(--line);margin-top:0}
+.ft-top{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:48px 0 34px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.ft-top p{font-family:var(--display);font-size:clamp(26px,2.8vw,38px);line-height:1.15;color:var(--navy);max-width:24ch}
+.ft{display:grid;grid-template-columns:1.4fr .8fr 1fr 1fr;gap:40px;padding:40px 0 48px;font-size:14.5px;color:var(--mute)}
+.ft img{width:150px;height:auto;margin-bottom:18px}
+.ft h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:14px}
+.ft ul{list-style:none;display:grid;gap:8px}
+.ft a{text-decoration:none}
+.ft a:hover{color:var(--navy)}
+.ft address{font-style:normal}
+.ft address + address{margin-top:14px}
+.ft address b{color:var(--navy);font-weight:600;display:block}
+.social{display:flex;gap:10px;margin-top:18px}
+.social a{width:40px;height:40px;border-radius:50%;background:var(--gold-grad);display:grid;place-items:center;color:var(--navy-deep)}
+.social a:hover{transform:translateY(-2px)}
+.fb{background:var(--navy);color:#c9ccd8;font-size:13px}
+.fb .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:22px;padding-bottom:24px}
+.fb a:hover{color:var(--gold-lt)}
+@media (max-width:960px){.ft{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.ft{grid-template-columns:1fr}}
+
+/* ---------- WhatsApp flutuante ---------- */
+.wa{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--gold-grad);color:var(--navy-deep);display:grid;place-items:center;box-shadow:0 10px 30px rgba(15,22,48,.3);transition:transform .25s}
+.wa:hover{transform:scale(1.07)}
+.wa .ic{width:26px;height:26px}
+
+/* ---------- diálogos ---------- */
+dialog{border:0;padding:0;background:transparent;max-width:min(960px,92vw);width:100%;margin:auto}
+dialog::backdrop{background:rgba(10,14,32,.82);backdrop-filter:blur(4px)}
+.bio{background:#fff;border-radius:var(--r-xl);overflow:hidden;display:grid;grid-template-columns:.8fr 1.2fr;padding:10px;gap:10px}
+.bio .p{aspect-ratio:3/4;background:var(--navy);border-radius:var(--r);overflow:hidden}
+.bio .p img{width:100%;height:100%;object-fit:cover}
+.bio .t{padding:36px 32px;position:relative;border:1px solid var(--line);border-radius:var(--r)}
+.bio h3{font-size:34px;margin-top:14px}
+.x{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;color:var(--navy)}
+@media (max-width:700px){.bio{grid-template-columns:1fr}.bio .p{aspect-ratio:4/3}.bio .t{padding:28px 22px}}
+.lb{position:relative}
+.lb img{width:100%;max-height:82vh;object-fit:contain;border-radius:var(--r);background:#000}
+.lb .x{background:rgba(15,22,48,.7);border-color:rgba(255,255,255,.2);color:#fff}
+.lb .nv{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:var(--gold-grad);color:var(--navy-deep);display:grid;place-items:center}
+.lb .prev{left:14px}.lb .next{right:14px}
+.lb p{color:#c9ccd8;text-align:center;margin-top:14px;font-size:14px}
+
+/* ---------- privacidade ---------- */
+.legal{max-width:72ch}
+.pending{background:#fff;border:1px dashed #c9cdd9;border-radius:var(--r);padding:24px 26px;color:var(--mute)}
+</style>
+<link rel="stylesheet" href="motion.css">
+</head>
+<body>
+<div class="mb-pre" id="mbPre" aria-hidden="true"><div class="mb-pre-in"><img class="mb-pre-logo" src="img/logo-bloco.png" alt="" width="900" height="646"><div class="mb-pre-line"><i></i></div></div></div>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="l">
+      <a href="https://wa.me/5565981157076" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /> </svg> (65) 98115-7076</a>
+      <a href="mailto:marianabonjour@mbconsultoriapolitica.com"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <rect width="20" height="16" x="2" y="4" rx="2" /> <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /> </svg> marianabonjour@mbconsultoriapolitica.com</a>
+      <a href="https://www.instagram.com/mbconsultoriapolitica/" target="_blank" rel="noopener"><svg class="ic ic-b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg> @mbconsultoriapolitica</a>
+    </div>
+    <div class="r">Cuiabá · Brasília</div>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="MB Consultoria e Assessoria Política, página inicial"><img src="img/logo-linha.png" alt="MB Consultoria & Assessoria Política"></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /> </svg></button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#quem-somos">Quem Somos</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#experiencias">Experiências</a>
+      <a href="#sedes">Sedes</a>
+      <a href="#conteudos">Conteúdos</a>
+      <a class="btn btn-navy" href="#contato">Fale com a MB <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section class="page" data-page="home">
+  <div class="hero-wrap">
+    <div class="hero">
+      <div class="hero-bg"><img src="img/cba-hero.jpg" alt="Recepção da MB Consultoria e Assessoria Política em Cuiabá" fetchpriority="high"></div>
+      <div class="hero-in">
+        <div class="hero-txt">
+          <div class="label light"><i></i><i></i>Consultoria & Assessoria Política</div>
+          <h1>Comunicação política com propósito. <span class="it gold-t">Estratégia que aproxima.</span></h1>
+          <p class="lead">Acreditamos que por trás de cada figura pública existe uma história, uma identidade e um propósito que merecem ser comunicados de forma verdadeira.</p>
+          <div class="btns">
+            <a class="btn btn-gold" href="#solucoes">Conheça nossas soluções <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a>
+            <a class="btn btn-line" href="#contato">Converse com a MB</a>
+          </div>
+        </div>
+        <div class="hero-chip">Cuiabá <i></i> Brasília</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="wrap about">
+      <div class="collage">
+        <div class="ph a"><img loading="lazy" src="img/cba-sala-direcao.jpg" alt="Sala de direção da MB em Cuiabá" style="object-position:40% 50%"></div>
+        <div class="ph"><img loading="lazy" src="img/f-detalhe.jpg" alt="Caderno da MB sobre a mesa" style="object-position:50% 40%"></div>
+        <div class="gold-tile"><img loading="lazy" src="img/logo-simbolo.png" alt=""></div>
+      </div>
+      <div>
+        <div class="label"><i></i><i></i>Quem Somos</div>
+        <p class="big">Na MB Consultoria e Assessoria Política, desenvolvemos estratégias que vão além da comunicação convencional. Nosso trabalho é compreender a essência de cada liderança, instituição ou projeto para construir posicionamentos autênticos, fortalecer reputações e aproximar pessoas.</p>
+        <p class="mute">Unimos conhecimento político, planejamento estratégico e a comunicação para transformar propósitos em mensagens que fazem sentido para a sociedade.</p>
+        <p style="margin-top:28px"><a class="btn btn-navy" href="#quem-somos">Quem somos <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk band hatch dark">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div><div class="label"><i></i><i></i>Soluções</div><h2 style="margin-top:16px">Mais do que comunicar, é preciso construir conexões.</h2></div>
+        <div class="side"><p>Atuamos em diferentes momentos da vida pública, oferecendo soluções personalizadas que acompanham desde a construção do posicionamento até a execução das estratégias de comunicação.</p><a class="btn btn-white" href="#solucoes">Conheça nossos serviços <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a></div>
+      </div>
+      <div class="svc-grid">
+        <a class="svc hl" href="#solucoes" data-anchor="s-comunicacao"><div class="in"><div class="top"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m3 11 18-5v12L3 14v-3z" /> <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" /> </svg></span><span class="n">01</span></div><h3>Comunicação Política</h3><p>Acompanhamento estratégico e contínuo para lideranças, mandatos, partidos e instituições.</p><div class="go"><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></div></a>
+        <a class="svc" href="#solucoes" data-anchor="s-execucao"><div class="in"><div class="top"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /> </svg></span><span class="n">02</span></div><h3>Consultoria e Execução</h3><p>Estratégia e operação integradas, do planejamento à gestão dos canais.</p><div class="go"><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></div></a>
+        <a class="svc" href="#solucoes" data-anchor="s-treinamentos"><div class="in"><div class="top"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M2 3h20" /> <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /> <path d="m7 21 5-5 5 5" /> </svg></span><span class="n">03</span></div><h3>Treinamentos e Workshops</h3><p>Preparação de pessoas e equipes que atuam no ambiente político e institucional.</p><div class="go"><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></div></a>
+        <a class="svc" href="#solucoes" data-anchor="s-mandato"><div class="in"><div class="top"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <line x1="3" x2="21" y1="22" y2="22" /> <line x1="6" x2="6" y1="18" y2="11" /> <line x1="10" x2="10" y1="18" y2="11" /> <line x1="14" x2="14" y1="18" y2="11" /> <line x1="18" x2="18" y1="18" y2="11" /> <polygon points="12 2 20 7 4 7" /> </svg></span><span class="n">04</span></div><h3>Planejamento de Mandato</h3><p>Direção, organização e comunicação permanente ao longo da atuação parlamentar.</p><div class="go"><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></div></a>
+        <a class="svc" href="#solucoes" data-anchor="s-campanhas"><div class="in"><div class="top"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m9 12 2 2 4-4" /> <path d="M5 7c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v12H5V7Z" /> <path d="M22 19H2" /> </svg></span><span class="n">05</span></div><h3>Campanhas Eleitorais</h3><p>Da análise de cenário à execução completa da comunicação de campanha.</p><div class="go"><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></div></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk white">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="label"><i></i><i></i>Nossos diferenciais</div>
+        <h2 class="h-wide">Uma comunicação mais estratégica, ética, autêntica e próxima das pessoas.</h2>
+      </div>
+      <div class="why">
+        <div class="why-photo">
+          <img loading="lazy" src="img/eq-mariana.jpg" alt="Mariana Bonjour na recepção da MB Consultoria e Assessoria Política">
+          <span class="why-badge"><img loading="lazy" src="img/logo-simbolo.png" alt=""></span>
+        </div>
+        <div class="bento">
+          <div class="bt navy c-a"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /> <circle cx="12" cy="12" r="10" /> </svg></span><span class="wm"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /> <circle cx="12" cy="12" r="10" /> </svg></span><h3>Propósito</h3><p>Antes de construir uma mensagem, buscamos compreender a história, os valores e aquilo que realmente move cada liderança.</p></div>
+          <div class="bt soft c-b"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" /> <path d="M14 13.12c0 2.38 0 6.38-1 8.88" /> <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" /> <path d="M2 12a10 10 0 0 1 18-6" /> <path d="M2 16h.01" /> <path d="M21.8 16c.2-2 .131-5.354 0-6" /> <path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2" /> <path d="M8.65 22c.21-.66.45-1.32.57-2" /> <path d="M9 6.8a6 6 0 0 1 9 5.2v2" /> </svg></span><span class="wm"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" /> <path d="M14 13.12c0 2.38 0 6.38-1 8.88" /> <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" /> <path d="M2 12a10 10 0 0 1 18-6" /> <path d="M2 16h.01" /> <path d="M21.8 16c.2-2 .131-5.354 0-6" /> <path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2" /> <path d="M8.65 22c.21-.66.45-1.32.57-2" /> <path d="M9 6.8a6 6 0 0 1 9 5.2v2" /> </svg></span><h3>Autenticidade</h3><p>Acreditamos que uma comunicação consistente precisa respeitar a identidade de quem comunica.</p></div>
+          <div class="bt soft c-c"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /> </svg></span><span class="wm"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /> </svg></span><h3>Estratégia</h3><p>Cada ação é orientada por planejamento, análise de cenário e objetivos definidos.</p></div>
+          <div class="bt deep c-d"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m11 17 2 2a1 1 0 1 0 3-3" /> <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /> <path d="m21 3 1 11h-2" /> <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /> <path d="M3 4h8" /> </svg></span><span class="wm"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m11 17 2 2a1 1 0 1 0 3-3" /> <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /> <path d="m21 3 1 11h-2" /> <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /> <path d="M3 4h8" /> </svg></span><h3>Proximidade</h3><p>Valorizamos a escuta, o relacionamento e a construção de conexões reais com as pessoas.</p></div>
+          <div class="bt navy c-e"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z" /> </svg></span><span class="wm"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z" /> </svg></span><h3>Atuação integrada</h3><p>Oferecemos desde o acompanhamento estratégico até a execução completa da comunicação.</p></div>
+          <div class="bt gold c-f"><p>Nosso trabalho começa pela compreensão do verdadeiro propósito por trás de cada figura pública.</p><a class="btn btn-navy" href="#contato">Converse com a MB <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" data-marquee aria-hidden="true"></div>
+
+  <div class="blk">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div><div class="label"><i></i><i></i>Experiências</div><h2 style="margin-top:16px">Experiências que fazem parte da nossa história.</h2></div>
+        <div class="side"><p class="mute">Nossa trajetória reúne experiências com lideranças, partidos e projetos políticos.</p><a class="btn btn-navy" href="#experiencias">Ver todas as experiências <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a></div>
+      </div>
+      <div class="rail" id="homeStrip" role="region" aria-roledescription="carrossel" aria-label="Experiências da MB"><div class="rail-track"></div></div>
+      <div class="rail-ctl">
+        <button type="button" class="rail-btn" id="railPrev" aria-label="Anterior"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m12 19-7-7 7-7" /> <path d="M19 12H5" /> </svg></button>
+        <button type="button" class="rail-btn" id="railPause" aria-label="Pausar movimento" aria-pressed="false"><span class="i-pause"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <rect x="14" y="4" width="4" height="16" rx="1" /> <rect x="6" y="4" width="4" height="16" rx="1" /> </svg></span><span class="i-play"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <polygon points="6 3 20 12 6 21 6 3" /> </svg></span></button>
+        <button type="button" class="rail-btn" id="railNext" aria-label="Próximo"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk white">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="label"><i></i><i></i>Nossas sedes</div>
+        <h2>Presença estratégica em Cuiabá e Brasília.</h2>
+        <p class="mute">Dois importantes centros de articulação política e institucional do país.</p>
+      </div>
+      <div class="duo">
+        <a class="place-card" href="#sedes" data-anchor="u-cuiaba"><div class="ph"><img loading="lazy" src="img/cba-fachada.jpg" alt="Fachada da MB em Cuiabá"></div><div class="row"><span class="pill">Mato Grosso</span></div><div class="row2"><div><h3>MB Cuiabá</h3><p>Avenida Roma, nº 19, Jardim Itália</p></div><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></a>
+        <a class="place-card" href="#sedes" data-anchor="u-brasilia"><div class="ph"><img loading="lazy" src="img/bsb-sala.jpg" alt="Sala de reunião da MB em Brasília"></div><div class="row"><span class="pill">Distrito Federal</span></div><div class="row2"><div><h3>MB Brasília</h3><p>Edifício Terra Brasilis, SAUS, Quadra 1, Bloco N, Sala 712</p></div><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk" data-cta></div>
+</section>
+
+<!-- ============ QUEM SOMOS ============ -->
+<section class="page" data-page="quem-somos">
+  <div class="ph-wrap">
+    <div class="ph-hdr hatch">
+      <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+      <div class="ph-in">
+        <div>
+          <div class="label light"><i></i><i></i>Quem Somos</div>
+          <h1>Uma forma diferente de fazer <span class="it gold-t">comunicação.</span></h1>
+          <p class="lead">A MB Consultoria e Assessoria Política é uma empresa especializada em marketing político e comunicação governamental que acredita em uma forma diferente de fazer comunicação: mais estratégica, ética, autêntica e próxima das pessoas.</p>
+        </div>
+        <div class="ph-photo"><img src="img/f-duas.jpg" alt="Consultoras da MB no escritório"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="wrap">
+      <div class="big-card">
+        <div class="two">
+          <div class="photo tall"><img loading="lazy" src="img/f-direcao.jpg" alt="Sala de direção da MB em Cuiabá"></div>
+          <div class="measure">
+            <div class="label"><i></i><i></i>Nossa atuação</div>
+            <h2 style="margin:16px 0 24px">Tudo começa pelo propósito.</h2>
+            <p>Nosso trabalho começa pela compreensão do verdadeiro propósito por trás de cada figura pública. Buscamos entender histórias, valores, trajetórias e objetivos para desenvolver estratégias que respeitem a identidade de cada liderança e fortaleçam sua conexão com a sociedade.</p>
+            <p>Atuamos ao lado de políticos, candidatos, partidos, instituições e gestões públicas, oferecendo soluções que integram planejamento, posicionamento, construção de narrativas e execução de comunicação.</p>
+            <p>Com sedes em Cuiabá e Brasília, reunimos o conhecimento político e a expertise em comunicação necessárias para desenvolver projetos personalizados, respeitando os desafios e as particularidades de cada cenário.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" data-marquee aria-hidden="true"></div>
+
+  <div class="blk band hatch dark">
+    <div class="wrap">
+      <div class="sec-head center"><div class="label"><i></i><i></i>Nossos diferenciais</div><h2>O que guia cada projeto.</h2></div>
+      <div class="diff-grid">
+        <div class="diff"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /> <circle cx="12" cy="12" r="10" /> </svg></span><h3>Propósito</h3><p>Antes de construir uma mensagem, buscamos compreender a história, os valores e aquilo que realmente move cada liderança.</p></div>
+        <div class="diff"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" /> <path d="M14 13.12c0 2.38 0 6.38-1 8.88" /> <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" /> <path d="M2 12a10 10 0 0 1 18-6" /> <path d="M2 16h.01" /> <path d="M21.8 16c.2-2 .131-5.354 0-6" /> <path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2" /> <path d="M8.65 22c.21-.66.45-1.32.57-2" /> <path d="M9 6.8a6 6 0 0 1 9 5.2v2" /> </svg></span><h3>Autenticidade</h3><p>Acreditamos que uma comunicação consistente precisa respeitar a identidade de quem comunica.</p></div>
+        <div class="diff"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /> </svg></span><h3>Estratégia</h3><p>Cada ação é orientada por planejamento, análise de cenário e objetivos definidos.</p></div>
+        <div class="diff"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m11 17 2 2a1 1 0 1 0 3-3" /> <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /> <path d="m21 3 1 11h-2" /> <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /> <path d="M3 4h8" /> </svg></span><h3>Proximidade</h3><p>Valorizamos a escuta, o relacionamento e a construção de conexões reais com as pessoas.</p></div>
+        <div class="diff"><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z" /> </svg></span><h3>Atuação integrada</h3><p>Oferecemos desde o acompanhamento estratégico até a execução completa da comunicação, conforme as necessidades de cada projeto.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="wrap">
+      <div class="duo">
+        <a class="place-card" href="#sedes" data-anchor="u-cuiaba"><div class="ph"><img loading="lazy" src="img/cba-recepcao.jpg" alt="Recepção da MB em Cuiabá"></div><div class="row"><span class="pill">Mato Grosso</span></div><div class="row2"><div><h3>MB Cuiabá</h3><p>Conheça a sede</p></div><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></a>
+        <a class="place-card" href="#sedes" data-anchor="u-brasilia"><div class="ph"><img loading="lazy" src="img/bsb-recepcao.jpg" alt="Recepção da MB em Brasília"></div><div class="row"><span class="pill">Distrito Federal</span></div><div class="row2"><div><h3>MB Brasília</h3><p>Conheça a sede</p></div><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk" data-cta style="padding-top:0"></div>
+</section>
+
+<!-- ============ EQUIPE ============ -->
+<section class="page" data-page="equipe">
+  <div class="ph-wrap">
+    <div class="ph-hdr solo hatch">
+      <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+      <div class="ph-in">
+        <div>
+          <div class="label light"><i></i><i></i>MB Consultoria</div>
+          <h1>Nossa <span class="it gold-t">Equipe.</span></h1>
+          <p class="lead">Por trás de cada estratégia, existem pessoas que acreditam no poder de uma comunicação construída com propósito.</p>
+          <p style="margin-top:16px;max-width:62ch">Nossa equipe reúne diferentes competências para compreender diferentes cenários, desenvolver soluções personalizadas e transformar planejamento em comunicação.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="wrap">
+      <div class="big-card">
+        <div class="lead-member">
+          <div class="ph"><img loading="lazy" src="img/eq-mariana.jpg" alt="Mariana Bonjour"></div>
+          <div class="measure">
+            <div class="label"><i></i><i></i>Sócia-fundadora</div>
+            <h2 style="margin-top:16px">Mariana Bonjour</h2>
+            <p class="role">Sócia-fundadora · Consultora-chefe de Comunicação Governamental e Marketing Político</p>
+            <p>À frente da MB Consultoria e Assessoria Política, Mariana Bonjour atua no desenvolvimento de estratégias de posicionamento, reputação e comunicação para lideranças e projetos políticos.</p>
+            <p>Sua trajetória profissional reúne experiência em comunicação política e governamental, planejamento estratégico e conhecimento das dinâmicas institucionais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk tight" style="padding-top:0">
+    <div class="wrap"><div class="quote-card"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /> <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /> </svg><p>Não vendemos fórmulas mágicas. <span class="it">Aplicamos métodos testados e aprovados.</span></p></div></div>
+  </div>
+
+  <div class="blk">
+    <div class="wrap">
+      <div class="sec-head center"><div class="label"><i></i><i></i>Consultores e direção de arte</div></div>
+      <div class="team" id="team"></div>
+    </div>
+  </div>
+
+  <div class="blk" data-cta style="padding-top:0"></div>
+</section>
+
+<!-- ============ SOLUÇÕES ============ -->
+<section class="page" data-page="solucoes">
+  <div class="ph-wrap">
+    <div class="ph-hdr hatch">
+      <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+      <div class="ph-in">
+        <div>
+          <div class="label light"><i></i><i></i>Nossas Soluções</div>
+          <h1>Cada projeto tem uma história. <span class="it gold-t">Cada desafio exige uma estratégia.</span></h1>
+          <p class="lead">Na MB Consultoria e Assessoria Política, desenvolvemos soluções personalizadas para diferentes momentos da vida política.</p>
+          <p style="margin-top:16px">Nossa atuação combina conhecimento político, planejamento e comunicação, oferecendo desde o acompanhamento estratégico até a execução completa das ações.</p>
+        </div>
+        <div class="ph-photo"><img src="img/f-mesa.jpg" alt="Consultora trabalhando no escritório da MB"></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="subnav" aria-label="Soluções">
+    <div class="wrap">
+      <a href="#solucoes" data-anchor="s-comunicacao">Comunicação Política</a>
+      <a href="#solucoes" data-anchor="s-execucao">Consultoria e Execução</a>
+      <a href="#solucoes" data-anchor="s-treinamentos">Treinamentos e Workshops</a>
+      <a href="#solucoes" data-anchor="s-mandato">Planejamento de Mandato</a>
+      <a href="#solucoes" data-anchor="s-campanhas">Campanhas Eleitorais</a>
+    </div>
+  </nav>
+
+  <div class="blk">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div><div class="label"><i></i><i></i>Consultoria</div><h2 style="margin-top:16px">Estratégia contínua ou estratégia com execução.</h2></div>
+        <div class="side"><p class="mute">Você escolhe o nível de envolvimento da MB: acompanhamento estratégico, ou a estratégia somada à equipe que produz e gerencia a comunicação.</p></div>
+      </div>
+      <div class="compare">
+        <div id="s-comunicacao" class="anchor">
+          <span class="tag">Consultoria estratégica</span>
+          <h3>Comunicação Política</h3>
+          <p>Acompanhamento estratégico e contínuo para lideranças, mandatos, partidos e instituições que desejam construir uma comunicação consistente e alinhada aos seus objetivos.</p>
+          <p>O trabalho envolve planejamento, definição de estratégias, detalhamento de ações, posicionamento, construção de narrativas, orientação para produção de conteúdo e reuniões periódicas de alinhamento.</p>
+          <p class="deliv-h">Principais entregas</p>
+          <ul class="deliv">
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Planejamento estratégico de comunicação</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Análise de cenário e posicionamento</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Construção de narrativas</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Direcionamento e detalhamento de ações</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Orientação para produção de conteúdo</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Reuniões de acompanhamento e alinhamento</li>
+          </ul>
+        </div>
+        <div id="s-execucao" class="exec anchor">
+          <span class="tag">Estratégia + execução</span>
+          <h3>Consultoria e Execução de Comunicação</h3>
+          <p>Para projetos que precisam de estratégia e operação integradas, a MB oferece acompanhamento estratégico aliado à execução das ações de comunicação.</p>
+          <p>Além do planejamento e direcionamento, nossa equipe desenvolve e gerencia os materiais e canais necessários para colocar a estratégia em prática.</p>
+          <p class="deliv-h">Principais entregas</p>
+          <ul class="deliv">
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Planejamento e consultoria estratégica</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Produção de vídeos</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Criação de peças gráficas</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Gestão de redes sociais</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Impulsionamento e tráfego pago</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Assessoria de imprensa</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Acompanhamento e alinhamento das ações</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" data-marquee aria-hidden="true"></div>
+
+  <div class="blk anchor" id="s-treinamentos">
+    <div class="wrap">
+      <div class="big-card">
+        <div class="two">
+          <div class="photo"><img loading="lazy" src="img/g-workshop.jpg" alt="Workshop de comunicação política com palestrante e participantes"></div>
+          <div class="measure">
+            <span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M2 3h20" /> <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /> <path d="m7 21 5-5 5 5" /> </svg></span>
+            <h2 style="margin:22px 0 20px">Treinamentos e Workshops</h2>
+            <p class="lead" style="font-size:18px;font-weight:500;color:var(--navy)">A comunicação política também se fortalece por meio da preparação de pessoas e equipes.</p>
+            <p>Desenvolvemos treinamentos e workshops voltados ao aprimoramento da comunicação, ao alinhamento estratégico e à qualificação de profissionais que atuam no ambiente político e institucional.</p>
+            <p>Os conteúdos são adaptados às necessidades e aos objetivos de cada grupo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk anchor" id="s-mandato" style="padding-top:0">
+    <div class="wrap">
+      <div class="big-card">
+        <div class="two rev">
+          <div class="photo"><img loading="lazy" src="img/cba-mapa.jpg" alt="Mapa de Mato Grosso na parede da MB em Cuiabá"></div>
+          <div class="measure">
+            <span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <line x1="3" x2="21" y1="22" y2="22" /> <line x1="6" x2="6" y1="18" y2="11" /> <line x1="10" x2="10" y1="18" y2="11" /> <line x1="14" x2="14" y1="18" y2="11" /> <line x1="18" x2="18" y1="18" y2="11" /> <polygon points="12 2 20 7 4 7" /> </svg></span>
+            <h2 style="margin:22px 0 20px">Planejamento de Mandato</h2>
+            <p class="lead" style="font-size:18px;font-weight:500;color:var(--navy)">Um mandato consistente precisa de direção, organização e comunicação permanente.</p>
+            <p>A MB desenvolve planejamentos que auxiliam lideranças a organizar prioridades, definir posicionamentos e estruturar a comunicação ao longo de sua atuação parlamentar.</p>
+            <p>Nosso trabalho busca conectar os objetivos políticos às demandas da população, fortalecendo a identidade do mandato e sua relação com a sociedade.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk band hatch dark anchor" id="s-campanhas">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div><span class="chip-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m9 12 2 2 4-4" /> <path d="M5 7c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v12H5V7Z" /> <path d="M22 19H2" /> </svg></span><h2 style="margin-top:20px">Campanhas Eleitorais</h2><p class="lead" style="margin-top:18px;color:#e2dfd6">Uma campanha exige estratégia, planejamento e capacidade de execução.</p></div>
+        <div class="side">
+          <p>A MB atua em diferentes etapas do processo eleitoral, desde a análise de cenário e construção do posicionamento até o planejamento e a execução completa da comunicação.</p>
+          <p>Desenvolvemos estratégias personalizadas que consideram a trajetória do candidato, o contexto político, os objetivos da campanha e a conexão com o eleitorado.</p>
+        </div>
+      </div>
+      <p class="deliv-h" style="margin:0 0 6px">Nossa atuação pode envolver</p>
+      <ul class="camp-list">
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Diagnóstico e análise de cenário</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Planejamento estratégico eleitoral</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Posicionamento e construção de narrativas</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Planejamento de comunicação</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Produção de conteúdo e materiais de campanha</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Gestão de redes sociais</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Tráfego pago e impulsionamento</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Assessoria de imprensa</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Acompanhamento estratégico e execução da comunicação</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="blk" data-cta data-title="Converse com nossos consultores." data-btn="Converse com nossos consultores"></div>
+</section>
+
+<!-- ============ EXPERIÊNCIAS ============ -->
+<section class="page" data-page="experiencias">
+  <div class="ph-wrap">
+    <div class="ph-hdr solo hatch">
+      <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+      <div class="ph-in">
+        <div>
+          <div class="label light"><i></i><i></i>Clientes e Experiências</div>
+          <h1>Experiências que fazem parte <span class="it gold-t">da nossa história.</span></h1>
+          <p class="lead">Cada projeto representa um novo cenário, um desafio e uma oportunidade de construir estratégias de comunicação.</p>
+          <p style="margin-top:16px;max-width:62ch">Nossa trajetória reúne experiências com lideranças, partidos e projetos políticos que reforçam a importância de uma comunicação planejada, autêntica e conectada aos objetivos de cada cliente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blk">
+    <div class="wrap">
+      <div class="filters" id="filters" role="group" aria-label="Filtrar clientes"></div>
+      <div class="clients" id="clients"></div>
+    </div>
+  </div>
+  <div class="marquee" data-marquee aria-hidden="true"></div>
+  <div class="blk" data-cta></div>
+</section>
+
+<!-- ============ SEDES ============ -->
+<section class="page" data-page="sedes">
+  <div class="ph-wrap">
+    <div class="ph-hdr hatch">
+      <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+      <div class="ph-in">
+        <div>
+          <div class="label light"><i></i><i></i>Nossas Sedes</div>
+          <h1>Presença estratégica em <span class="it gold-t">Cuiabá e Brasília.</span></h1>
+          <p class="lead">A MB Consultoria e Assessoria Política está presente em dois importantes centros de articulação política e institucional do país.</p>
+          <p style="margin-top:16px">Com estruturas em Cuiabá e Brasília, fortalecemos nossa presença e ampliamos as possibilidades de relacionamento, acompanhamento e desenvolvimento de projetos.</p>
+        </div>
+        <div class="ph-photo"><img src="img/f-fachada-h.jpg" alt="Fachada da MB em Cuiabá" style="object-position:62% 50%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk anchor" id="u-cuiaba">
+    <div class="wrap unit">
+      <div class="unit-info">
+        <span class="pill gold">Cuiabá · Mato Grosso</span>
+        <h2>MB Cuiabá</h2>
+        <p class="mute">Nossa estrutura em Cuiabá representa a conexão com o cenário político regional e o desenvolvimento de projetos de comunicação e consultoria.</p>
+        <div class="addr"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /> </svg><div><b>Endereço</b>Avenida Roma, nº 19, Jardim Itália<br>Cuiabá — MT</div></div>
+        <a class="btn btn-navy" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida%20Roma%2019%20Jardim%20It%C3%A1lia%20Cuiab%C3%A1%20MT" target="_blank" rel="noopener">Ver no mapa <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></a>
+      </div>
+      <div>
+        <p class="gal-h">Conheça a MB Cuiabá</p>
+        <div class="gallery" id="gal-cba"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk band hatch dark anchor" id="u-brasilia">
+    <div class="wrap unit">
+      <div class="unit-info">
+        <span class="pill gold">Brasília · Distrito Federal</span>
+        <h2>MB Brasília</h2>
+        <p>Nossa estrutura em Brasília amplia a presença institucional da consultoria na capital federal, aproximando a MB de importantes espaços de articulação política.</p>
+        <div class="addr"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /> </svg><div><b>Endereço</b>Edifício Terra Brasilis<br>SAUS, Quadra 1, Bloco N, Sala 712 — Asa Sul<br>Brasília — DF</div></div>
+        <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&amp;query=Edif%C3%ADcio%20Terra%20Brasilis%20SAUS%20Quadra%201%20Bloco%20N%20Bras%C3%ADlia" target="_blank" rel="noopener">Ver no mapa <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></a>
+      </div>
+      <div>
+        <p class="gal-h">Conheça a MB Brasília</p>
+        <div class="gallery" id="gal-bsb"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk" data-cta data-title="Agende uma visita ou uma conversa." data-btn="Agende uma conversa com a MB" data-img="img/bsb-lounge-cta.jpg" data-alt="Recepção da MB em Brasília, com a marca na parede e poltronas de couro" data-pos="38% 50%"></div>
+</section>
+
+<!-- ============ CONTEÚDOS ============ -->
+<section class="page" data-page="conteudos">
+  <div class="ph-wrap">
+    <div class="ph-hdr solo hatch">
+      <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+      <div class="ph-in">
+        <div>
+          <div class="label light"><i></i><i></i>Conteúdos e Análises</div>
+          <h1>A política está em constante movimento. <span class="it gold-t">Nossa análise também.</span></h1>
+          <p class="lead">Acompanhe reflexões, tendências e conteúdos sobre comunicação política, marketing eleitoral, gestão pública e posicionamento.</p>
+          <p style="margin-top:16px;max-width:62ch">Um espaço para compartilhar conhecimento, interpretar cenários e discutir os desafios da comunicação no ambiente político.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blk">
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filtrar conteúdos">
+        <button class="chip" aria-pressed="true" type="button">Todos</button>
+        <button class="chip" aria-pressed="false" type="button">Artigos</button>
+        <button class="chip" aria-pressed="false" type="button">Cases</button>
+        <button class="chip" aria-pressed="false" type="button">Redes sociais</button>
+      </div>
+      <p class="model-note"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M8 2v4" /> <path d="M16 2v4" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <path d="M3 10h18" /> </svg>Modelo de publicação: os primeiros conteúdos entram aqui</p>
+      <div class="posts">
+        <article class="post"><div class="ph"><img loading="lazy" src="img/f-mesa.jpg" alt="" style="object-position:50% 25%"></div><div class="meta"><span class="pill">Comunicação política</span><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M8 2v4" /> <path d="M16 2v4" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <path d="M3 10h18" /> </svg>dd/mm/aaaa</span></div><h3>Título do artigo</h3><p>Breve descrição do conteúdo.</p><div class="foot"><a class="link" href="#conteudos">Leia mais</a><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></article>
+        <article class="post"><div class="ph"><img loading="lazy" src="img/g-workshop.jpg" alt=""></div><div class="meta"><span class="pill">Marketing eleitoral</span><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M8 2v4" /> <path d="M16 2v4" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <path d="M3 10h18" /> </svg>dd/mm/aaaa</span></div><h3>Título do artigo</h3><p>Breve descrição do conteúdo.</p><div class="foot"><a class="link" href="#conteudos">Leia mais</a><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></article>
+        <article class="post"><div class="ph"><img loading="lazy" src="img/f-detalhe.jpg" alt="" style="object-position:50% 40%"></div><div class="meta"><span class="pill">Reputação</span><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M8 2v4" /> <path d="M16 2v4" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <path d="M3 10h18" /> </svg>dd/mm/aaaa</span></div><h3>Título do artigo</h3><p>Breve descrição do conteúdo.</p><div class="foot"><a class="link" href="#conteudos">Leia mais</a><span class="circle"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg></span></div></article>
+      </div>
+    </div>
+  </div>
+  <div class="blk tight" style="padding-top:0">
+    <div class="wrap">
+      <div class="insta hatch">
+        <div><div class="label light"><i></i><i></i>Redes sociais</div><h2>Acompanhe a MB no Instagram</h2><p>@mbconsultoriapolitica</p></div>
+        <a class="btn btn-gold" href="https://www.instagram.com/mbconsultoriapolitica/" target="_blank" rel="noopener"><svg class="ic ic-b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg> Seguir no Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="page" data-page="contato">
+  <div class="blk tight">
+    <div class="wrap contact">
+      <div class="side hatch">
+        <div class="label light"><i></i><i></i>Contato</div>
+        <h1>Vamos construir sua próxima <span class="it gold-t">estratégia?</span></h1>
+        <p class="lead" style="color:#e2dfd6">Toda boa comunicação começa com uma conversa.</p>
+        <p style="margin-top:14px">Entre em contato com a equipe da MB Consultoria e Assessoria Política e descubra como podemos contribuir para o desenvolvimento do seu projeto.</p>
+        <p class="subhead">Contato comercial</p>
+        <ul class="clist" style="margin-top:14px">
+          <li><span class="ico"><svg class="ic ic-b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><div><small>Telefone / WhatsApp</small><a href="https://wa.me/5565981157076" target="_blank" rel="noopener">(65) 98115-7076</a></div></li>
+          <li><span class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <rect width="20" height="16" x="2" y="4" rx="2" /> <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /> </svg></span><div><small>E-mail</small><a href="mailto:marianabonjour@mbconsultoriapolitica.com">marianabonjour@mbconsultoriapolitica.com</a></div></li>
+          <li><span class="ico"><svg class="ic ic-b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><div><small>Instagram</small><a href="https://www.instagram.com/mbconsultoriapolitica/" target="_blank" rel="noopener">@mbconsultoriapolitica</a></div></li>
+          <li><span class="ico"><svg class="ic ic-b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><div><small>LinkedIn</small><span style="color:#9ea3b8">Link a inserir</span></div></li>
+        </ul>
+        <p class="subhead">Nossas unidades</p>
+        <div class="units-mini" style="margin-top:14px">
+          <div><b>Cuiabá — MT</b>Avenida Roma, nº 19, Jardim Itália.</div>
+          <div><b>Brasília — DF</b>Edifício Terra Brasilis, SAUS, Quadra 1, Bloco N, Sala 712 — Asa Sul.</div>
+        </div>
+      </div>
+      <div class="formside">
+        <div class="label"><i></i><i></i>Formulário</div>
+        <h2>Agende uma conversa com a MB</h2>
+        <p class="mute">Preencha os campos e nossa equipe retorna o contato.</p>
+        <form id="form" novalidate>
+          <div class="f full"><label for="f-nome">Nome completo</label><input id="f-nome" name="nome" autocomplete="name" required></div>
+          <div class="f"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="f"><label for="f-tel">Telefone / WhatsApp</label><input id="f-tel" name="telefone" type="tel" autocomplete="tel" required></div>
+          <div class="f"><label for="f-inst">Instituição ou projeto</label><input id="f-inst" name="instituicao"></div>
+          <div class="f"><label for="f-assunto">Assunto</label>
+            <select id="f-assunto" name="assunto">
+              <option>Comunicação Política</option>
+              <option>Consultoria e Execução</option>
+              <option>Treinamentos e Workshops</option>
+              <option>Planejamento de Mandato</option>
+              <option>Campanhas Eleitorais</option>
+              <option>Outro assunto</option>
+            </select></div>
+          <div class="f full"><label for="f-msg">Mensagem</label><textarea id="f-msg" name="mensagem"></textarea></div>
+          <label class="consent" for="f-ok"><input type="checkbox" id="f-ok" required><span>Concordo com o uso dos meus dados para retorno do contato, conforme a <a href="#privacidade">Política de Privacidade</a>.</span></label>
+          <div style="grid-column:1/-1"><button class="btn btn-navy" type="submit" style="border:0">Agende uma conversa com a MB <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></button></div>
+          <div class="formmsg" id="formmsg" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIVACIDADE ============ -->
+<section class="page" data-page="privacidade">
+  <div class="ph-wrap"><div class="ph-hdr solo hatch"><div class="ph-in"><div><div class="label light"><i></i><i></i>Institucional</div><h1>Política de Privacidade</h1></div></div></div></div>
+  <div class="blk">
+    <div class="wrap legal">
+      <p class="pending">O texto da Política de Privacidade será fornecido pela MB Consultoria e Assessoria Política. Ele deve explicar quais dados o formulário de contato coleta, para que são usados, por quanto tempo ficam guardados e como o titular pode pedir a exclusão, conforme a LGPD.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="marquee" data-marquee aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <div class="ft-top">
+      <p>Comunicação política com propósito. Estratégia que aproxima.</p>
+      <a class="btn btn-navy" href="#contato">Fale com a MB <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a>
+    </div>
+    <div class="ft">
+      <div>
+        <img loading="lazy" src="img/logo-bloco.png" alt="MB Consultoria & Assessoria Política" width="900" height="646">
+        <p>Consultoria especializada em Comunicação Governamental e Marketing Político.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/mbconsultoriapolitica/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic ic-b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+          <a href="#contato" aria-label="LinkedIn (link a inserir)"><svg class="ic ic-b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://wa.me/5565981157076" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic ic-b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#quem-somos">Quem Somos</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#solucoes">Nossos Serviços</a></li>
+          <li><a href="#experiencias">Clientes e Experiências</a></li>
+          <li><a href="#sedes">Nossas Sedes</a></li>
+          <li><a href="#conteudos">Conteúdos e Análises</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unidades</h4>
+        <address><b>Cuiabá — MT</b>Avenida Roma, nº 19, Jardim Itália.</address>
+        <address><b>Brasília — DF</b>Edifício Terra Brasilis, SAUS, Quadra 1, Bloco N, Sala 712 — Asa Sul.</address>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5565981157076" target="_blank" rel="noopener">(65) 98115-7076</a></li>
+          <li style="overflow-wrap:anywhere">marianabonjour@mbconsultoriapolitica.com</li>
+          <li>Instagram: @mbconsultoriapolitica</li>
+          <li>LinkedIn: link a inserir</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="fb hatch">
+    <div class="wrap">
+      <span>© 2026 MB Consultoria e Assessoria Política. Todos os direitos reservados.</span>
+      <a href="#privacidade">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5565981157076" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp"><svg class="ic ic-b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+
+<dialog id="bioDlg" aria-labelledby="bioName"><div class="bio"><div class="p"><img id="bioImg" alt=""></div><div class="t"><button class="x" type="button" data-close aria-label="Fechar"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M18 6 6 18" /> <path d="m6 6 12 12" /> </svg></button><div class="label"><i></i><i></i>Equipe MB</div><h3 id="bioName"></h3><p class="role" id="bioRole"></p><div id="bioText"></div></div></div></dialog>
+
+<dialog id="lbDlg" aria-label="Galeria de fotos"><div class="lb"><img id="lbImg" alt=""><button class="x" type="button" data-close aria-label="Fechar"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M18 6 6 18" /> <path d="m6 6 12 12" /> </svg></button><button class="nv prev" type="button" id="lbPrev" aria-label="Foto anterior"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m15 18-6-6 6-6" /> </svg></button><button class="nv next" type="button" id="lbNext" aria-label="Próxima foto"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="m9 18 6-6-6-6" /> </svg></button><p id="lbCap"></p></div></dialog>
+
+<template id="ctaTpl">
+  <div class="wrap">
+    <div class="cta-card hatch">
+      <div class="t">
+        <div class="label light"><i></i><i></i>Contato</div>
+        <h2 data-t>Vamos construir sua próxima estratégia?</h2>
+        <p>Toda boa comunicação começa com uma conversa.</p>
+        <div class="btns"><a class="btn btn-gold" href="#contato" data-b>Agende uma conversa com a MB <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a><a class="btn btn-line" href="https://wa.me/5565981157076" target="_blank" rel="noopener"><svg class="ic ic-b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp</a></div>
+      </div>
+      <div class="ph"><img data-ci loading="lazy" src="img/g-conversa.jpg" alt="Conversa estratégica entre consultores e cliente" style="object-position:28% 40%"></div>
+    </div>
+  </div>
+</template>
+
+<template id="mqTpl"><span>Comunicação Política</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M12 6v12" /> <path d="M17.196 9 6.804 15" /> <path d="m6.804 9 10.392 6" /> </svg><span>Consultoria e Execução</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M12 6v12" /> <path d="M17.196 9 6.804 15" /> <path d="m6.804 9 10.392 6" /> </svg><span>Treinamentos e Workshops</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M12 6v12" /> <path d="M17.196 9 6.804 15" /> <path d="m6.804 9 10.392 6" /> </svg><span>Planejamento de Mandato</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M12 6v12" /> <path d="M17.196 9 6.804 15" /> <path d="m6.804 9 10.392 6" /> </svg><span>Campanhas Eleitorais</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M12 6v12" /> <path d="M17.196 9 6.804 15" /> <path d="m6.804 9 10.392 6" /> </svg></template>
+
+<script>
+(function(){
+  var ARROW = document.querySelector('#ctaTpl').content.querySelector('[data-b] svg').outerHTML;
+  // CTA
+  document.querySelectorAll('[data-cta]').forEach(function(el){
+    el.appendChild(document.getElementById('ctaTpl').content.cloneNode(true));
+    if(el.dataset.title) el.querySelector('[data-t]').textContent = el.dataset.title;
+    if(el.dataset.btn) el.querySelector('[data-b]').innerHTML = el.dataset.btn + ' ' + ARROW;
+    if(el.dataset.img){ var ci = el.querySelector('[data-ci]'); ci.src = el.dataset.img; ci.alt = el.dataset.alt || ''; ci.style.objectPosition = el.dataset.pos || '50% 50%'; }
+  });
+  // Faixas de serviços (conteúdo repetido para o loop contínuo)
+  var MQ = document.getElementById('mqTpl').innerHTML;
+  document.querySelectorAll('[data-marquee]').forEach(function(el){
+    el.innerHTML = '<div class="track">' + MQ + MQ + MQ + MQ + '</div>';
+  });
+
+  // Clientes
+  var clients = [
+    {n:'Jayme Campos', c:'Senador', g:'senado', img:'c-jayme-campos'},
+    {n:'Blairo Maggi', c:'Senador', g:'senado', img:'c-blairo-maggi'},
+    {n:'Cidinho Santos', c:'Senador', g:'senado', img:'c-cidinho-santos'},
+    {n:'Juarez Costa', c:'Deputado Federal', g:'deputados', img:'c-juarez-costa'},
+    {n:'Coronel Fernanda', c:'Deputada Federal', g:'deputados', img:'c-coronel-fernanda'},
+    {n:'Rafael Brito', c:'Deputado Federal', g:'deputados', img:'c-rafael-brito'},
+    {n:'Valmir Moretto', c:'Deputado Estadual', g:'deputados', img:'c-valmir-moretto'},
+    {n:'João Bang', c:'Prefeito', g:'prefeitos', img:'c-joao-bang'},
+    {n:'Passarinho', c:'Prefeito', g:'prefeitos', img:'c-passarinho'},
+    {n:'Edemilson Marino', c:'Prefeito', g:'prefeitos', img:'c-edemilson-marino'},
+    {n:'Max Russi', c:'Imagem a inserir', g:'outros'},
+    {n:'Janaina Riva', c:'Imagem a inserir', g:'outros'},
+    {n:'Wilson Santos', c:'Imagem a inserir', g:'outros'},
+    {n:'Podemos / MT', c:'Imagem a inserir', g:'partidos'}
+  ];
+  function card(x){
+    if(x.img) return '<figure class="client-card"><div class="ph"><img loading="lazy" src="img/'+x.img+'.jpg" alt="'+x.n+', '+x.c+'"></div></figure>';
+    return '<figure class="client-card ph-only"><div class="ph"><b>'+x.n+'</b><small>'+x.c+'</small></div></figure>';
+  }
+  document.addEventListener('pointermove', function(e){
+    var b=e.target.closest&&e.target.closest('.bt'); if(!b) return;
+    var r=b.getBoundingClientRect(); b.style.setProperty('--mx',(e.clientX-r.left)+'px'); b.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+  (function(){
+    var rail=document.getElementById('homeStrip'), track=rail.querySelector('.rail-track');
+    var one=clients.filter(function(x){return x.img}).map(card).join('');
+    track.innerHTML = one + one.split('<figure class="client-card"').join('<figure aria-hidden="true" class="client-card"');
+    var N=track.children.length/2, x=0, setW=0, step=0, cur=0, nudge=0, last=0, raf=0;
+    var hover=false, drag=false, stopped=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SPEED=38; // px por segundo
+    var pauseBtn=document.getElementById('railPause');
+    function sync(){pauseBtn.setAttribute('aria-pressed', stopped);pauseBtn.setAttribute('aria-label', stopped?'Retomar movimento':'Pausar movimento')}
+    function measure(){ if(!track.offsetWidth) return false; setW=track.children[N].offsetLeft-track.children[0].offsetLeft; step=track.children[1].offsetLeft-track.children[0].offsetLeft; return setW>0 }
+    function wrap(){ if(!setW) return; while(x<=-setW) x+=setW; while(x>0) x-=setW }
+    function paint(){ track.style.transform='translate3d('+x+'px,0,0)' }
+    function tick(t){
+      raf=requestAnimationFrame(tick);
+      var dt=Math.min(60,t-(last||t)); last=t;
+      var want=(stopped||hover||drag)?0:SPEED;
+      cur+=(want-cur)*Math.min(1,dt*0.006);
+      if(!drag){ x-=cur*dt/1000; var d=nudge*Math.min(1,dt*0.008); nudge-=d; x-=d; if(Math.abs(nudge)<.3) nudge=0 }
+      wrap(); paint();
+    }
+    function start(){ if(raf) return; if(!measure()) return; last=0; raf=requestAnimationFrame(tick) }
+    function stop(){ cancelAnimationFrame(raf); raf=0 }
+    new IntersectionObserver(function(en){ en[0].isIntersecting?start():stop() },{threshold:0}).observe(rail);
+    window.addEventListener('resize', function(){ if(measure()){wrap();paint()} });
+    window.addEventListener('load', function(){ if(raf && measure()){wrap();paint()} });
+    rail.addEventListener('pointerenter', function(e){ if(e.pointerType==='mouse') hover=true });
+    rail.addEventListener('pointerleave', function(){ hover=false });
+    var sx=0, sxPos=0;
+    track.addEventListener('pointerdown', function(e){ if(e.pointerType==='mouse'&&e.button!==0) return; drag=true; sx=e.clientX; sxPos=x; nudge=0; track.classList.add('drag'); try{track.setPointerCapture(e.pointerId)}catch(_){} });
+    track.addEventListener('pointermove', function(e){ if(!drag) return; x=sxPos+(e.clientX-sx); wrap(); paint() });
+    function up(){ drag=false; track.classList.remove('drag') }
+    track.addEventListener('pointerup', up); track.addEventListener('pointercancel', up);
+    track.addEventListener('dragstart', function(e){e.preventDefault()});
+    function go(dir){ if(!step) measure(); nudge += dir*step*2; if(!raf) { x-=nudge; nudge=0; wrap(); paint() } }
+    document.getElementById('railPrev').addEventListener('click', function(){go(-1)});
+    document.getElementById('railNext').addEventListener('click', function(){go(1)});
+    pauseBtn.addEventListener('click', function(){ stopped=!stopped; sync() });
+    sync();
+  })();
+  var groups = [['todos','Todos'],['senado','Senadores'],['deputados','Deputados'],['prefeitos','Prefeitos'],['partidos','Partidos'],['outros','Outros projetos']];
+  var fEl = document.getElementById('filters'), cEl = document.getElementById('clients');
+  fEl.innerHTML = groups.map(function(g,i){return '<button type="button" class="chip" data-g="'+g[0]+'" aria-pressed="'+(i===0)+'">'+g[1]+'</button>'}).join('');
+  function renderClients(g){ cEl.innerHTML = clients.filter(function(x){return g==='todos'||x.g===g}).map(card).join(''); }
+  fEl.addEventListener('click', function(e){
+    var b = e.target.closest('.chip'); if(!b) return;
+    fEl.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed', c===b)});
+    renderClients(b.dataset.g);
+  });
+  renderClients('todos');
+  document.querySelectorAll('[data-page="conteudos"] .filters').forEach(function(f){
+    f.addEventListener('click', function(e){var b=e.target.closest('.chip'); if(!b) return; f.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed', c===b)});});
+  });
+
+  // Equipe
+  var MORE = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M7 7h10v10" /> <path d="M7 17 17 7" /> </svg>';
+  var team = [
+    {n:'Felipe Fabre Figueiredo', r:'Consultor de Comunicação Governamental e Marketing Político', img:'eq-felipe',
+     b:['Integra a equipe de consultoria da MB, contribuindo para o desenvolvimento de estratégias, organização de projetos e acompanhamento de demandas de comunicação política e governamental.','Sua atuação combina capacidade analítica, organização e compreensão das dinâmicas do ambiente político.']},
+    {n:'Hortência Bragatto Vastos', r:'Consultora de Comunicação Governamental e Marketing Político', img:'eq-hortencia',
+     b:['Atua no planejamento e acompanhamento de projetos de comunicação política e governamental, contribuindo para análises de cenário, organização estratégica e desenvolvimento de soluções de comunicação.','Sua atuação valoriza o relacionamento interpessoal, a escuta e a compreensão das particularidades de cada cliente.']},
+    {n:'Joe Marcelo Siqueira Vidal', r:'Diretor de Arte', img:'eq-joe',
+     b:['Responsável pela direção de arte dos projetos da MB, contribuindo para o desenvolvimento de soluções visuais alinhadas às estratégias de comunicação.','Seu trabalho conecta criatividade, identidade visual e posicionamento, transformando conceitos estratégicos em materiais de comunicação.']}
+  ];
+  var tEl = document.getElementById('team');
+  tEl.innerHTML = team.map(function(m,i){
+    return '<button class="member" type="button" data-i="'+i+'"><div class="ph"><img loading="lazy" src="img/'+m.img+'.jpg" alt="'+m.n+'"></div><div class="in"><h3>'+m.n+'</h3><p class="role">'+m.r+'</p><span class="more">Ver biografia '+MORE+'</span></div></button>';
+  }).join('');
+  var bio = document.getElementById('bioDlg');
+  tEl.addEventListener('click', function(e){
+    var b = e.target.closest('.member'); if(!b) return;
+    var m = team[+b.dataset.i];
+    document.getElementById('bioImg').src = 'img/'+m.img+'.jpg';
+    document.getElementById('bioImg').alt = m.n;
+    document.getElementById('bioName').textContent = m.n;
+    document.getElementById('bioRole').textContent = m.r;
+    document.getElementById('bioText').innerHTML = m.b.map(function(p){return '<p>'+p+'</p>'}).join('');
+    bio.showModal();
+  });
+
+  // Galerias (Cuiabá e Brasília) com lightbox compartilhado
+  var galCba = [
+    ['cba-fachada','Fachada','g-a'],['cba-recepcao','Recepção','g-b'],['cba-sala-direcao','Sala de direção','g-c'],
+    ['cba-reuniao','Sala de reunião','g-c'],['cba-lounge','Espaço de convivência','g-c'],['cba-fachada-logo','Fachada','g-c'],
+    ['cba-estante','Estante','g-c'],['cba-equipe-sala','Sala da equipe','g-c'],['cba-reuniao-2','Sala de reunião','g-c'],
+    ['cba-lounge-2','Espaço de convivência','g-c'],['cba-certificados','Reconhecimentos','g-c']
+  ];
+  var galBsb = [
+    ['bsb-sala','Sala de reunião','g-a'],['bsb-recepcao','Recepção','g-b'],['bsb-logo','Painel com a marca','g-c','43% 50%'],
+    ['bsb-reuniao','Sala de reunião','g-c'],['bsb-lounge-2','Espaço de convivência','g-c'],['bsb-sala-2','Sala de reunião','g-c'],
+    ['bsb-mapa-df','Mapa do Distrito Federal','g-c'],['bsb-mapa-mt','Mapa de Mato Grosso','g-c'],['bsb-reuniao-2','Sala de reunião','g-c'],
+    ['bsb-detalhe','Detalhe da mesa','g-c'],['bsb-mesa','Detalhe da mesa','g-c']
+  ];
+  var gal = galCba, galCity = 'Cuiabá';
+  function fillGal(id, arr, city){
+    document.getElementById(id).innerHTML = arr.map(function(g,i){
+      return '<button type="button" class="'+g[2]+'" data-i="'+i+'" aria-label="Ampliar foto: '+g[1]+'"><img loading="lazy" src="img/'+g[0]+'.jpg" alt="'+g[1]+' da MB '+city+'"'+(g[3]?' style="object-position:'+g[3]+'"':'')+'></button>';
+    }).join('');
+    document.getElementById(id).addEventListener('click', function(e){ var b=e.target.closest('button'); if(!b) return; gal=arr; galCity=city; show(+b.dataset.i); lb.showModal(); });
+  }
+  var lb = document.getElementById('lbDlg'), cur = 0;
+  function show(i){ cur = (i+gal.length)%gal.length; document.getElementById('lbImg').src='img/'+gal[cur][0]+'.jpg'; document.getElementById('lbImg').alt=gal[cur][1]; document.getElementById('lbCap').textContent = gal[cur][1]+' · MB '+galCity+' · '+(cur+1)+' de '+gal.length; }
+  fillGal('gal-cba', galCba, 'Cuiabá');
+  fillGal('gal-bsb', galBsb, 'Brasília');
+  document.getElementById('lbPrev').onclick = function(){show(cur-1)};
+  document.getElementById('lbNext').onclick = function(){show(cur+1)};
+  lb.addEventListener('keydown', function(e){ if(e.key==='ArrowLeft') show(cur-1); if(e.key==='ArrowRight') show(cur+1); });
+  document.querySelectorAll('dialog').forEach(function(d){
+    d.addEventListener('click', function(e){ if(e.target===d || e.target.closest('[data-close]')) d.close(); });
+  });
+
+  // Formulário
+  document.getElementById('form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = e.target, msg = document.getElementById('formmsg');
+    var missing = ['f-nome','f-email','f-tel'].filter(function(id){return !document.getElementById(id).value.trim()});
+    if(missing.length){ msg.textContent = 'Preencha nome, e-mail e telefone para enviar.'; msg.classList.add('show'); document.getElementById(missing[0]).focus(); return; }
+    if(!document.getElementById('f-ok').checked){ msg.textContent = 'Marque o aceite da Política de Privacidade para enviar.'; msg.classList.add('show'); return; }
+    var txt = 'Olá, MB! Sou '+f.nome.value+(f.instituicao.value?' ('+f.instituicao.value+')':'')+'. Assunto: '+f.assunto.value+'. '+f.mensagem.value;
+    msg.innerHTML = 'Esta é a versão de apresentação do site: o envio por e-mail será ativado na publicação. Enquanto isso, você pode <a href="https://wa.me/5565981157076?text='+encodeURIComponent(txt)+'" target="_blank" rel="noopener">enviar a mesma mensagem pelo WhatsApp</a>.';
+    msg.classList.add('show');
+  });
+
+  // Rotas
+  var pages = Array.prototype.map.call(document.querySelectorAll('section.page'), function(s){return s.dataset.page});
+  var nav = document.getElementById('nav'), menuBtn = document.getElementById('menuBtn');
+  var pendingAnchor = null;
+  function route(){
+    var h = (location.hash||'').slice(1); if(pages.indexOf(h)<0) h='home';
+    document.querySelectorAll('section.page').forEach(function(s){ s.classList.toggle('on', s.dataset.page===h); });
+    nav.querySelectorAll('a').forEach(function(a){ if(a.getAttribute('href')==='#'+h) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+    nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false');
+    var T={'quem-somos':'Quem Somos','equipe':'Equipe','solucoes':'Soluções','experiencias':'Experiências','sedes':'Sedes','conteudos':'Conteúdos','contato':'Contato','privacidade':'Política de Privacidade'};
+    document.title = h==='home' ? 'MB Consultoria e Assessoria Política' : T[h]+' · MB Consultoria e Assessoria Política';
+    if(pendingAnchor){ var t=document.getElementById(pendingAnchor); pendingAnchor=null; if(t){ setTimeout(function(){t.scrollIntoView({behavior:'smooth'})},60); return; } }
+    window.scrollTo(0,0);
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[data-anchor]'); if(!a) return;
+    pendingAnchor = a.dataset.anchor;
+    if(location.hash === a.getAttribute('href')){ e.preventDefault(); route(); }
+  });
+  window.addEventListener('hashchange', route);
+  menuBtn.addEventListener('click', function(){ var o = nav.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); });
+  route();
+})();
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script defer src="motion.js"></script>
+</body>
+</html>

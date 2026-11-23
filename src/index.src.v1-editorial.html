@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function(){var d=document.documentElement;d.classList.add('mb-js');
+var seen=false;try{seen=sessionStorage.getItem('mb-pre')==='1'}catch(e){}
+if(seen){d.classList.add('mb-pre-seen')}else{d.classList.add('mb-lock')}
+setTimeout(function(){d.classList.remove('mb-lock')},4000);})();
+</script>
+<title>MB Consultoria e Assessoria Política</title>
+<meta name="description" content="Comunicação política com propósito. Estratégia que aproxima. Consultoria em Comunicação Governamental e Marketing Político em Cuiabá e Brasília.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Paleta do site antigo: azul-marinho + dourado do logo. Layout: arcos do símbolo M recortam as fotos; linhas finas douradas; tipografia editorial. */
+  --navy:#192347;
+  --navy-deep:#0f1630;
+  --gold:#c9a063;
+  --gold-lt:#f2c47e;
+  --gold-grad:linear-gradient(100deg,#ba9357 0%,#f7c67d 100%);
+  --bone:#f3efe7;
+  --paper:#fbfaf7;
+  --ink:#161b2e;
+  --mute:#5c6276;
+  --line:rgba(25,35,71,.14);
+  --line-dk:rgba(242,196,126,.22);
+  --display:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --body:"Jost","Futura","Century Gothic",system-ui,sans-serif;
+  --wrap:1200px;
+  --arch:999px 999px 0 0;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:300;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.ic{width:22px;height:22px;flex:none}
+.ic-b{width:20px;height:20px}
+
+/* type */
+h1,h2,h3,.serif{font-family:var(--display);font-weight:500;line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(44px,6.2vw,84px)}
+h2{font-size:clamp(34px,4.2vw,56px)}
+h3{font-size:clamp(24px,2.3vw,30px);line-height:1.15}
+.it{font-style:italic}
+.gold-t{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{font-family:var(--body);font-size:12.5px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:36px;height:1px;background:var(--gold-grad)}
+.lead{font-size:clamp(18px,1.6vw,21px);line-height:1.6;max-width:62ch}
+p+p{margin-top:1em}
+.measure{max-width:62ch}
+.mute{color:var(--mute)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:999px;font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;transition:transform .25s,background .25s,color .25s,border-color .25s}
+.btn .ic{width:18px;height:18px;transition:transform .25s}
+.btn:hover .ic{transform:translateX(4px)}
+.btn-gold{background:var(--gold-grad);color:var(--navy-deep)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-line{border-color:var(--gold);color:var(--gold-lt)}
+.btn-line:hover{background:rgba(242,196,126,.1)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-deep)}
+.btn-ghost{border-color:var(--navy);color:var(--navy)}
+.btn-ghost:hover{background:var(--navy);color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.link{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--navy);border-bottom:1px solid var(--gold);padding-bottom:6px}
+.link .ic{width:16px;height:16px;transition:transform .25s}
+.link:hover .ic{transform:translateX(4px)}
+.dark .link{color:var(--gold-lt)}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(15,22,48,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dk)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;gap:24px}
+.brand img{height:34px;width:auto}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{color:#e9e4d8;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold-grad);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.nav a:hover::after,.nav a[aria-current="page"]::after{transform:scaleX(1)}
+.nav a[aria-current="page"]{color:var(--gold-lt)}
+.nav .btn{padding:11px 20px;font-size:12px}
+.nav .btn::after{display:none}
+.menu-btn{display:none;background:none;border:0;color:var(--gold-lt);padding:8px}
+.menu-btn .ic{width:28px;height:28px}
+@media (max-width:1080px){
+  .menu-btn{display:block}
+  .nav{position:fixed;inset:78px 0 auto 0;background:var(--navy-deep);flex-direction:column;align-items:flex-start;padding:28px;gap:18px;border-bottom:1px solid var(--line-dk);transform:translateY(-130%);transition:transform .35s;z-index:-1}
+  .nav.open{transform:none}
+  .nav a{font-size:15px}
+}
+
+/* sections */
+section.page{display:none}
+section.page.on{display:block;animation:in .5s ease}
+@keyframes in{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:none}}
+.blk{padding:clamp(72px,9vw,128px) 0}
+.blk.tight{padding:clamp(56px,6vw,88px) 0}
+.dark{background:var(--navy);color:#ece7dc}
+.deep{background:var(--navy-deep);color:#ece7dc}
+.bone{background:var(--bone)}
+.dark h1,.dark h2,.dark h3,.deep h1,.deep h2,.deep h3{color:#fff}
+.dark .mute,.deep .mute{color:#b3b6c4}
+.head{display:grid;gap:22px;margin-bottom:56px}
+.head.split{grid-template-columns:1.1fr 1fr;align-items:end;gap:48px}
+@media (max-width:860px){.head.split{grid-template-columns:1fr;gap:22px}}
+
+/* arch photos */
+.arch{border-radius:var(--arch);overflow:hidden;position:relative;background:var(--navy)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.arch-frame{position:relative}
+.arch-frame::after{content:"";position:absolute;inset:-18px 18px 18px -18px;border:1px solid var(--gold);border-radius:var(--arch);opacity:.55;pointer-events:none}
+
+/* hero — foto do escritório de Cuiabá em tela cheia + degradê azul-marinho */
+.hero{position:relative;overflow:hidden;background:var(--navy-deep);color:#ece7dc;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:78% 50%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,#0f1630 0%,rgba(15,22,48,.95) 28%,rgba(15,22,48,.72) 52%,rgba(15,22,48,.28) 78%,rgba(15,22,48,.12) 100%),
+  linear-gradient(0deg,rgba(15,22,48,.9) 0%,rgba(15,22,48,0) 32%),
+  linear-gradient(180deg,rgba(15,22,48,.55) 0%,rgba(15,22,48,0) 22%)}
+.hero .wrap{display:flex;align-items:center;min-height:clamp(560px,80vh,740px);padding-top:96px;padding-bottom:104px}
+.hero-txt{max-width:780px}
+.hero h1{color:#fff;font-size:clamp(36px,3.5vw,52px);line-height:1.12;margin:24px 0 24px}
+.hero h1 .gold-t{display:block}
+.hero p{color:#d3d5de;max-width:54ch}
+.hero .btns{margin-top:36px}
+.hero-mark{position:absolute;right:-120px;bottom:-160px;width:560px;opacity:.05;pointer-events:none}
+.cities{display:flex;gap:18px;align-items:center;margin-top:44px;font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.cities i{width:5px;height:5px;border-radius:50%;background:var(--gold);display:block}
+@media (max-width:860px){
+  .hero .wrap{min-height:0;padding-top:88px;padding-bottom:88px}
+  .hero-bg img{object-position:68% 50%}
+  .hero-bg::after{background:linear-gradient(180deg,rgba(15,22,48,.82) 0%,rgba(15,22,48,.9) 55%,#0f1630 100%)}
+  .arch-frame{max-width:420px;margin-left:18px}
+}
+
+/* manifesto */
+.manifesto{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start}
+.manifesto .big{font-family:var(--display);font-size:clamp(26px,2.6vw,36px);line-height:1.3;color:var(--navy)}
+@media (max-width:860px){.manifesto{grid-template-columns:1fr;gap:28px}}
+
+/* service list (home) */
+.svc-list{border-top:1px solid var(--line)}
+.svc-row{display:grid;grid-template-columns:72px 56px 1fr 1.3fr 40px;gap:24px;align-items:center;padding:30px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:background .3s,padding .3s}
+.svc-row:hover{background:var(--bone);padding-left:18px;padding-right:18px}
+.svc-row .n{font-family:var(--display);font-size:22px;color:var(--gold)}
+.svc-row > .ic{width:30px;height:30px;color:var(--navy)}
+.svc-row h3{color:var(--navy)}
+.svc-row p{color:var(--mute);font-size:16px}
+.svc-row .go{color:var(--gold);justify-self:end}
+@media (max-width:860px){.svc-row{grid-template-columns:40px 1fr 24px;gap:10px 14px}.svc-row > .ic{display:none}.svc-row .n{grid-column:1;grid-row:1}.svc-row h3{grid-column:2;grid-row:1}.svc-row p{grid-column:2;grid-row:2}.svc-row .go{grid-column:3;grid-row:1}}
+
+/* diferenciais */
+.diffs{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line-dk)}
+.diff{padding:34px 26px 10px 0;border-right:1px solid var(--line-dk)}
+.diff+.diff{padding-left:26px}
+.diff:last-child{border-right:0}
+.diff .ic{width:30px;height:30px;color:var(--gold-lt);margin-bottom:26px}
+.diff h3{font-size:26px;margin-bottom:12px}
+.diff p{font-size:15.5px;color:#b9bccb}
+.bone .diffs,.paper .diffs{border-color:var(--line)}
+.bone .diff{border-color:var(--line)}
+.bone .diff .ic{color:var(--gold)}
+.bone .diff p{color:var(--mute)}
+.bone .diff h3{color:var(--navy)}
+@media (max-width:1000px){.diffs{grid-template-columns:1fr 1fr}.diff,.diff+.diff{padding:28px 20px 28px 0;border-right:0;border-bottom:1px solid var(--line-dk)}.bone .diff{border-color:var(--line)}}
+@media (max-width:560px){.diffs{grid-template-columns:1fr}}
+
+/* client cards */
+.clients{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:22px}
+.client{border-radius:14px;overflow:hidden;background:var(--navy);aspect-ratio:425/539;position:relative;transition:transform .35s}
+.client:hover{transform:translateY(-6px)}
+.client img{width:100%;height:100%;object-fit:cover}
+.client.ph{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:22px;background:radial-gradient(120% 70% at 50% 18%,#26346a 0%,var(--navy) 55%,var(--navy-deep) 100%)}
+.client.ph::before{content:"";position:absolute;left:18%;right:18%;top:12%;bottom:36%;border:1px solid var(--gold);border-radius:var(--arch);opacity:.6}
+.client.ph b{font-family:var(--display);font-weight:500;color:#fff;font-size:24px;line-height:1.1;position:relative}
+.client.ph small{color:var(--gold);font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-top:8px;position:relative}
+.strip{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin}
+.strip .client{flex:0 0 210px;scroll-snap-align:start}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.chip{border:1px solid var(--line);background:transparent;color:var(--navy);padding:10px 20px;border-radius:999px;font-size:12.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.chip[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* sedes (home) */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.place{position:relative;border-radius:18px;overflow:hidden;min-height:440px;display:flex;align-items:flex-end;text-decoration:none;color:#fff;background:var(--navy)}
+.place img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.place:hover img{transform:scale(1.04)}
+.place::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,22,48,0) 35%,rgba(15,22,48,.88) 100%)}
+.place .t{position:relative;z-index:1;padding:34px}
+.place .t small{display:block;color:var(--gold-lt);font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:8px}
+.place .t b{font-family:var(--display);font-weight:500;font-size:40px;line-height:1}
+.place .t span{display:block;margin-top:10px;font-size:15px;color:#d6d8e0}
+.place.empty{background:radial-gradient(90% 80% at 70% 20%,#26346a,var(--navy-deep))}
+.place.empty .mk{position:absolute;right:8%;top:12%;width:42%;opacity:.12}
+@media (max-width:760px){.duo{grid-template-columns:1fr}.place{min-height:340px}}
+
+/* cta */
+.cta{position:relative;overflow:hidden;background:var(--navy-deep);color:#ece7dc;text-align:left}
+.cta .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.16}
+.cta .wrap{position:relative;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:end}
+.cta h2{color:#fff;margin:22px 0 18px}
+.cta .btns{justify-content:flex-end}
+@media (max-width:860px){.cta .wrap{grid-template-columns:1fr}.cta .btns{justify-content:flex-start}}
+
+/* page header */
+.ph-hdr{background:var(--navy-deep);color:#ece7dc;position:relative;overflow:hidden}
+.ph-hdr .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;padding-top:80px;padding-bottom:88px}
+.ph-hdr h1{color:#fff;margin:24px 0 26px}
+.ph-hdr p{color:#c9cbd6}
+.ph-hdr .arch{aspect-ratio:4/5;max-height:520px}
+.ph-hdr.solo .wrap{grid-template-columns:1fr}
+.ph-hdr .hero-mark{opacity:.045}
+@media (max-width:860px){.ph-hdr .wrap{grid-template-columns:1fr;gap:48px;padding-top:56px}.ph-hdr .arch{max-height:420px}}
+
+/* two col */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.two.rev > :first-child{order:2}
+.two .photo{border-radius:18px;overflow:hidden;aspect-ratio:4/3}
+.two .photo img{width:100%;height:100%;object-fit:cover}
+.two .photo.tall{aspect-ratio:4/5}
+@media (max-width:860px){.two{grid-template-columns:1fr;gap:36px}.two.rev > :first-child{order:0}}
+
+/* equipe */
+.quote{font-family:var(--display);font-size:clamp(32px,4vw,54px);line-height:1.15;color:var(--navy);max-width:20ch;text-wrap:balance}
+.quote .ic{width:40px;height:40px;color:var(--gold);margin-bottom:20px}
+.lead-member{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}
+.lead-member .arch{aspect-ratio:3/4}
+.role{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:14px 0 26px;line-height:1.6}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;align-items:start}
+.member{background:none;border:0;text-align:left;color:inherit;display:block;width:100%}
+.member .arch{aspect-ratio:3/4;transition:transform .4s}
+.member:hover .arch{transform:translateY(-6px)}
+.member h3{margin-top:24px;color:var(--navy)}
+.member .role{margin:10px 0 14px;font-size:12px}
+.member .more{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--gold);padding-bottom:4px}
+.member .more .ic{width:15px;height:15px}
+@media (max-width:860px){.lead-member{grid-template-columns:1fr;gap:40px}.lead-member .arch-frame{max-width:380px;margin-left:18px}.team{grid-template-columns:1fr 1fr;gap:28px}}
+@media (max-width:520px){.team{grid-template-columns:1fr}}
+
+/* soluções */
+.subnav{position:sticky;top:78px;z-index:20;background:rgba(251,250,247,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.subnav .wrap{display:flex;gap:28px;overflow-x:auto;height:62px;align-items:center;scrollbar-width:none}
+.subnav a{white-space:nowrap;text-decoration:none;font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.subnav a:hover{color:var(--navy)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.compare > div{padding:clamp(32px,4vw,56px)}
+.compare .exec{background:var(--navy);color:#ece7dc}
+.compare .exec h3{color:#fff}
+.tag{display:inline-block;font-size:11.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:7px 14px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);margin-bottom:26px}
+.exec .tag{background:var(--gold-grad);color:var(--navy-deep);border:0}
+.compare h3{font-size:clamp(28px,2.8vw,38px);color:var(--navy);margin-bottom:18px}
+.compare p{font-size:16px}
+.compare .exec p{color:#c9cbd6}
+.deliv{list-style:none;margin-top:30px;border-top:1px solid var(--line)}
+.exec .deliv{border-color:var(--line-dk)}
+.deliv li{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line);font-size:16px}
+.exec .deliv li{border-color:var(--line-dk)}
+.deliv .ic{width:18px;height:18px;color:var(--gold);margin-top:4px}
+.deliv-h{font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;margin-top:32px;color:var(--gold)}
+@media (max-width:860px){.compare{grid-template-columns:1fr}}
+.svc-ic{width:56px;height:56px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);margin-bottom:28px}
+.svc-ic .ic{width:24px;height:24px}
+.camp-list{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px;margin-top:48px;border-top:1px solid var(--line-dk)}
+.camp-list li{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line-dk);font-size:16px}
+.camp-list .ic{width:18px;height:18px;color:var(--gold-lt);margin-top:4px}
+@media (max-width:860px){.camp-list{grid-template-columns:1fr}}
+.anchor{scroll-margin-top:150px}
+
+/* sedes page */
+.unit{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.unit h2{margin:18px 0 6px}
+.unit .region{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.addr{display:flex;gap:16px;margin:32px 0;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dark .addr{border-color:var(--line-dk)}
+.addr .ic{color:var(--gold);margin-top:3px}
+.addr b{display:block;font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px;color:var(--gold)}
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:120px;gap:12px}
+.gallery button{border:0;padding:0;border-radius:12px;overflow:hidden;background:var(--navy);position:relative}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery button:hover img{transform:scale(1.06)}
+.gallery button::after{content:"";position:absolute;inset:0;background:rgba(15,22,48,0);transition:background .3s}
+.gallery button:hover::after{background:rgba(15,22,48,.15)}
+.g-a{grid-column:span 4;grid-row:span 3}.g-b{grid-column:span 2;grid-row:span 3}.g-c{grid-column:span 2;grid-row:span 2}
+.gallery .empty{border:1px dashed var(--line-dk);border-radius:12px;display:grid;place-items:center;text-align:center;color:#9ea3b8;font-size:13px;letter-spacing:.08em;padding:12px;background:rgba(255,255,255,.02)}
+.gallery .empty .ic{color:var(--gold);margin:0 auto 8px;display:block}
+@media (max-width:960px){.unit{grid-template-columns:1fr;gap:40px}}
+@media (max-width:620px){.gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px}.g-a{grid-column:span 2;grid-row:span 2}.g-b,.g-c{grid-column:span 1;grid-row:span 1}}
+
+/* conteúdos */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.post{display:flex;flex-direction:column}
+.post .img{aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:var(--bone)}
+.post .img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.post:hover .img img{transform:scale(1.04)}
+.post .meta{display:flex;justify-content:space-between;gap:12px;margin:22px 0 12px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.post .meta span:last-child{color:var(--mute);font-variant-numeric:tabular-nums;display:flex;gap:6px;align-items:center}
+.post .meta .ic{width:14px;height:14px}
+.post h3{color:var(--navy);margin-bottom:10px}
+.post p{color:var(--mute);font-size:16px;margin-bottom:20px}
+.post .link{margin-top:auto;align-self:flex-start}
+.model-note{display:inline-flex;gap:10px;align-items:center;font-size:13px;color:var(--mute);border:1px dashed var(--line);border-radius:999px;padding:8px 16px;margin-bottom:28px}
+.model-note .ic{width:16px;height:16px;color:var(--gold)}
+.insta{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;border:1px solid var(--line);border-radius:22px;padding:clamp(28px,4vw,48px);background:var(--paper)}
+@media (max-width:900px){.posts{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.posts{grid-template-columns:1fr}.insta{grid-template-columns:1fr}}
+
+/* contato */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:640px}
+.clist a{overflow-wrap:anywhere}
+.contact .side{background:var(--navy-deep);color:#ece7dc;padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px)}
+.contact .side h1{color:#fff;font-size:clamp(40px,4.8vw,64px);margin:24px 0 22px}
+.contact .side p{color:#c9cbd6;max-width:46ch}
+.clist{list-style:none;margin-top:44px;border-top:1px solid var(--line-dk)}
+.clist li{display:flex;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line-dk)}
+.clist .ic{color:var(--gold)}
+.clist small{display:block;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.clist a{text-decoration:none}
+.clist a:hover{color:var(--gold-lt)}
+.units-mini{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;font-size:15px;color:#c9cbd6}
+.units-mini b{display:block;color:#fff;font-family:var(--display);font-weight:500;font-size:24px;margin-bottom:6px}
+.formside{padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px);background:var(--paper)}
+.formside h2{font-size:clamp(30px,3vw,40px);color:var(--navy);margin-bottom:8px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px;margin-top:36px}
+.f{display:grid;gap:8px}
+.f.full{grid-column:1/-1}
+label{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+input,select,textarea{font:inherit;font-size:16px;font-weight:400;color:var(--ink);background:transparent;border:0;border-bottom:1px solid rgba(25,35,71,.3);padding:10px 2px;border-radius:0;transition:border-color .25s}
+textarea{resize:vertical;min-height:110px}
+input:focus,select:focus,textarea:focus{outline:0;border-bottom-color:var(--gold)}
+.consent{grid-column:1/-1;display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--mute)}
+.consent input{margin-top:5px;accent-color:var(--navy)}
+.consent a{color:var(--navy)}
+.formmsg{grid-column:1/-1;display:none;border-left:2px solid var(--gold);background:var(--bone);padding:16px 20px;font-size:15px}
+.formmsg.show{display:block}
+@media (max-width:960px){.contact{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){form{grid-template-columns:1fr}.units-mini{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--navy-deep);color:#b9bccb;font-size:15px;border-top:1px solid var(--line-dk)}
+.ft{display:grid;grid-template-columns:1.4fr .8fr 1fr 1fr;gap:48px;padding:80px 0 56px}
+.ft img{width:180px;height:auto;margin-bottom:24px}
+.ft .tagline{font-family:var(--display);font-size:22px;line-height:1.3;color:#fff;margin-bottom:14px}
+.ft h4{font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ft ul{list-style:none;display:grid;gap:10px}
+.ft a{text-decoration:none}
+.ft a:hover{color:var(--gold-lt)}
+.ft address{font-style:normal}
+.ft address + address{margin-top:18px}
+.ft address b{color:#fff;font-weight:400;display:block}
+.social{display:flex;gap:12px;margin-top:20px}
+.social a{width:42px;height:42px;border:1px solid var(--line-dk);border-radius:50%;display:grid;place-items:center;color:var(--gold-lt)}
+.social a:hover{background:rgba(242,196,126,.1)}
+.fb{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:24px 0 30px;border-top:1px solid var(--line-dk);font-size:13px}
+.fb button{background:none;border:0;color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:960px){.ft{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.ft{grid-template-columns:1fr}}
+
+/* whatsapp float */
+.wa{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--gold-grad);color:var(--navy-deep);display:grid;place-items:center;box-shadow:0 10px 30px rgba(15,22,48,.35);transition:transform .25s}
+.wa:hover{transform:scale(1.07)}
+.wa .ic{width:26px;height:26px}
+
+/* dialogs */
+dialog{border:0;padding:0;background:transparent;max-width:min(960px,92vw);width:100%;margin:auto}
+dialog::backdrop{background:rgba(10,14,32,.82);backdrop-filter:blur(4px)}
+.bio{background:var(--paper);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:.8fr 1.2fr}
+.bio .p{aspect-ratio:3/4;background:var(--navy)}
+.bio .p img{width:100%;height:100%;object-fit:cover}
+.bio .t{padding:48px 44px;position:relative}
+.bio h3{font-size:36px;color:var(--navy)}
+.x{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--paper);display:grid;place-items:center;color:var(--navy)}
+@media (max-width:700px){.bio{grid-template-columns:1fr}.bio .p{aspect-ratio:4/3}.bio .t{padding:32px 26px}}
+.lb{position:relative}
+.lb img{width:100%;max-height:82vh;object-fit:contain;border-radius:14px;background:#000}
+.lb .x{background:rgba(15,22,48,.7);border-color:var(--line-dk);color:#fff}
+.lb .nv{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid var(--line-dk);background:rgba(15,22,48,.7);color:#fff;display:grid;place-items:center}
+.lb .prev{left:14px}.lb .next{right:14px}
+.lb p{color:#c9cbd6;text-align:center;margin-top:14px;font-size:14px}
+
+/* privacidade */
+.legal{max-width:72ch}
+.legal h2{font-size:30px;color:var(--navy);margin:40px 0 12px}
+.pending{border:1px dashed var(--line);border-radius:14px;padding:22px 24px;color:var(--mute);background:var(--bone)}
+</style>
+<link rel="stylesheet" href="motion.css">
+</head>
+<body>
+<div class="mb-pre" id="mbPre" aria-hidden="true"><div class="mb-pre-in"><img class="mb-pre-logo" src="img/logo-bloco.png" alt="" width="900" height="646"><div class="mb-pre-line"><i></i></div></div></div>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="MB Consultoria e Assessoria Política, página inicial"><img src="img/logo-linha.png" alt="MB Consultoria & Assessoria Política"></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">{{i:menu}}</button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#quem-somos">Quem Somos</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#experiencias">Experiências</a>
+      <a href="#sedes">Sedes</a>
+      <a href="#conteudos">Conteúdos</a>
+      <a class="btn btn-line" href="#contato">Fale com a MB</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section class="page" data-page="home">
+  <div class="hero">
+    <div class="hero-bg"><img src="img/cba-hero.jpg" alt="Recepção da MB Consultoria e Assessoria Política em Cuiabá" fetchpriority="high"></div>
+    <div class="wrap">
+      <div class="hero-txt">
+        <div class="eyebrow">Consultoria & Assessoria Política</div>
+        <h1>Comunicação política com propósito. <span class="it gold-t">Estratégia que aproxima.</span></h1>
+        <p class="lead">Acreditamos que por trás de cada figura pública existe uma história, uma identidade e um propósito que merecem ser comunicados de forma verdadeira.</p>
+        <div class="btns">
+          <a class="btn btn-gold" href="#solucoes">Conheça nossas soluções {{i:arrow-right}}</a>
+          <a class="btn btn-line" href="#contato">Converse com a MB</a>
+        </div>
+        <div class="cities">Cuiabá <i></i> Brasília</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk bone">
+    <div class="wrap manifesto">
+      <p class="big">Na MB Consultoria e Assessoria Política, desenvolvemos estratégias que vão além da comunicação convencional. Nosso trabalho é compreender a essência de cada liderança, instituição ou projeto para construir posicionamentos autênticos, fortalecer reputações e aproximar pessoas.</p>
+      <div>
+        <p class="mute">Unimos conhecimento político, planejamento estratégico e a comunicação para transformar propósitos em mensagens que fazem sentido para a sociedade.</p>
+        <p style="margin-top:32px"><a class="link" href="#quem-somos">Quem somos {{i:arrow-right}}</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="wrap">
+      <div class="head split">
+        <div><div class="eyebrow">Soluções</div><h2 style="margin-top:20px;color:var(--navy)">Mais do que comunicar, é preciso construir conexões.</h2></div>
+        <p class="mute">Atuamos em diferentes momentos da vida pública, oferecendo soluções personalizadas que acompanham desde a construção do posicionamento até a execução das estratégias de comunicação.</p>
+      </div>
+      <div class="svc-list">
+        <a class="svc-row" href="#solucoes" data-anchor="s-comunicacao"><span class="n">01</span>{{i:megaphone}}<h3>Comunicação Política</h3><p>Acompanhamento estratégico e contínuo para lideranças, mandatos, partidos e instituições.</p><span class="go">{{i:arrow-up-right}}</span></a>
+        <a class="svc-row" href="#solucoes" data-anchor="s-execucao"><span class="n">02</span>{{i:layers}}<h3>Consultoria e Execução</h3><p>Estratégia e operação integradas, do planejamento à gestão dos canais.</p><span class="go">{{i:arrow-up-right}}</span></a>
+        <a class="svc-row" href="#solucoes" data-anchor="s-treinamentos"><span class="n">03</span>{{i:presentation}}<h3>Treinamentos e Workshops</h3><p>Preparação de pessoas e equipes que atuam no ambiente político e institucional.</p><span class="go">{{i:arrow-up-right}}</span></a>
+        <a class="svc-row" href="#solucoes" data-anchor="s-mandato"><span class="n">04</span>{{i:landmark}}<h3>Planejamento de Mandato</h3><p>Direção, organização e comunicação permanente ao longo da atuação parlamentar.</p><span class="go">{{i:arrow-up-right}}</span></a>
+        <a class="svc-row" href="#solucoes" data-anchor="s-campanhas"><span class="n">05</span>{{i:vote}}<h3>Campanhas Eleitorais</h3><p>Da análise de cenário à execução completa da comunicação de campanha.</p><span class="go">{{i:arrow-up-right}}</span></a>
+      </div>
+      <p style="margin-top:44px"><a class="btn btn-navy" href="#solucoes">Conheça nossos serviços {{i:arrow-right}}</a></p>
+    </div>
+  </div>
+
+  <div class="blk dark">
+    <div class="wrap">
+      <div class="head split">
+        <div><div class="eyebrow">Nossos diferenciais</div><h2 style="margin-top:20px">Uma comunicação mais estratégica, ética, autêntica e próxima das pessoas.</h2></div>
+        <p class="mute">Nosso trabalho começa pela compreensão do verdadeiro propósito por trás de cada figura pública.</p>
+      </div>
+      <div class="diffs">
+        <div class="diff">{{i:compass}}<h3>Propósito</h3><p>Antes de construir uma mensagem, buscamos compreender a história, os valores e aquilo que realmente move cada liderança.</p></div>
+        <div class="diff">{{i:fingerprint}}<h3>Autenticidade</h3><p>Acreditamos que uma comunicação consistente precisa respeitar a identidade de quem comunica.</p></div>
+        <div class="diff">{{i:target}}<h3>Estratégia</h3><p>Cada ação é orientada por planejamento, análise de cenário e objetivos definidos.</p></div>
+        <div class="diff">{{i:handshake}}<h3>Proximidade</h3><p>Valorizamos a escuta, o relacionamento e a construção de conexões reais com as pessoas.</p></div>
+        <div class="diff">{{i:infinity}}<h3>Atuação integrada</h3><p>Oferecemos desde o acompanhamento estratégico até a execução completa da comunicação.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="wrap">
+      <div class="head split">
+        <div><div class="eyebrow">Experiências</div><h2 style="margin-top:20px;color:var(--navy)">Experiências que fazem parte da nossa história.</h2></div>
+        <div><p class="mute">Nossa trajetória reúne experiências com lideranças, partidos e projetos políticos.</p><p style="margin-top:22px"><a class="link" href="#experiencias">Ver todas as experiências {{i:arrow-right}}</a></p></div>
+      </div>
+      <div class="strip" id="homeStrip"></div>
+    </div>
+  </div>
+
+  <div class="blk bone">
+    <div class="wrap">
+      <div class="head split">
+        <div><div class="eyebrow">Nossas sedes</div><h2 style="margin-top:20px;color:var(--navy)">Presença estratégica em Cuiabá e Brasília.</h2></div>
+        <p class="mute">Dois importantes centros de articulação política e institucional do país.</p>
+      </div>
+      <div class="duo">
+        <a class="place" href="#sedes" data-anchor="u-cuiaba"><img loading="lazy" src="img/cba-fachada.jpg" alt="Fachada da MB em Cuiabá"><div class="t"><small>Mato Grosso</small><b>MB Cuiabá</b><span>Avenida Roma, nº 19, Jardim Itália</span></div></a>
+        <a class="place empty" href="#sedes" data-anchor="u-brasilia"><img loading="lazy" class="mk" src="img/logo-simbolo.png" alt="" style="position:absolute;inset:auto;right:8%;top:12%;width:42%;height:auto;object-fit:contain"><div class="t"><small>Distrito Federal</small><b>MB Brasília</b><span>Edifício Terra Brasilis, SAUS, Quadra 1, Bloco N, Sala 712</span></div></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk cta" data-cta></div>
+</section>
+
+<!-- ============ QUEM SOMOS ============ -->
+<section class="page" data-page="quem-somos">
+  <div class="ph-hdr">
+    <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Quem Somos</div>
+        <h1>Uma forma diferente de fazer <span class="it gold-t">comunicação.</span></h1>
+        <p class="lead">A MB Consultoria e Assessoria Política é uma empresa especializada em marketing político e comunicação governamental que acredita em uma forma diferente de fazer comunicação: mais estratégica, ética, autêntica e próxima das pessoas.</p>
+      </div>
+      <div class="arch-frame"><div class="arch"><img src="img/f-duas.jpg" alt="Consultoras da MB no escritório"></div></div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="wrap two">
+      <div class="photo tall"><img loading="lazy" src="img/f-direcao.jpg" alt="Sala de direção da MB em Cuiabá"></div>
+      <div class="measure">
+        <div class="eyebrow">Nossa atuação</div>
+        <h2 style="margin:20px 0 28px;color:var(--navy)">Tudo começa pelo propósito.</h2>
+        <p>Nosso trabalho começa pela compreensão do verdadeiro propósito por trás de cada figura pública. Buscamos entender histórias, valores, trajetórias e objetivos para desenvolver estratégias que respeitem a identidade de cada liderança e fortaleçam sua conexão com a sociedade.</p>
+        <p>Atuamos ao lado de políticos, candidatos, partidos, instituições e gestões públicas, oferecendo soluções que integram planejamento, posicionamento, construção de narrativas e execução de comunicação.</p>
+        <p>Com sedes em Cuiabá e Brasília, reunimos o conhecimento político e a expertise em comunicação necessárias para desenvolver projetos personalizados, respeitando os desafios e as particularidades de cada cenário.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk bone">
+    <div class="wrap">
+      <div class="head"><div class="eyebrow">Nossos diferenciais</div><h2 style="color:var(--navy)">O que guia cada projeto.</h2></div>
+      <div class="diffs">
+        <div class="diff">{{i:compass}}<h3>Propósito</h3><p>Antes de construir uma mensagem, buscamos compreender a história, os valores e aquilo que realmente move cada liderança.</p></div>
+        <div class="diff">{{i:fingerprint}}<h3>Autenticidade</h3><p>Acreditamos que uma comunicação consistente precisa respeitar a identidade de quem comunica.</p></div>
+        <div class="diff">{{i:target}}<h3>Estratégia</h3><p>Cada ação é orientada por planejamento, análise de cenário e objetivos definidos.</p></div>
+        <div class="diff">{{i:handshake}}<h3>Proximidade</h3><p>Valorizamos a escuta, o relacionamento e a construção de conexões reais com as pessoas.</p></div>
+        <div class="diff">{{i:infinity}}<h3>Atuação integrada</h3><p>Oferecemos desde o acompanhamento estratégico até a execução completa da comunicação, conforme as necessidades de cada projeto.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="wrap">
+      <div class="duo">
+        <a class="place" href="#sedes" data-anchor="u-cuiaba"><img loading="lazy" src="img/cba-recepcao.jpg" alt="Recepção da MB em Cuiabá"><div class="t"><small>Mato Grosso</small><b>MB Cuiabá</b><span>Conheça a sede</span></div></a>
+        <a class="place empty" href="#sedes" data-anchor="u-brasilia"><img loading="lazy" src="img/logo-simbolo.png" alt="" style="position:absolute;inset:auto;right:8%;top:12%;width:42%;height:auto;object-fit:contain;opacity:.12"><div class="t"><small>Distrito Federal</small><b>MB Brasília</b><span>Conheça a sede</span></div></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk cta" data-cta></div>
+</section>
+
+<!-- ============ EQUIPE ============ -->
+<section class="page" data-page="equipe">
+  <div class="ph-hdr solo">
+    <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">MB Consultoria</div>
+        <h1>Nossa <span class="it gold-t">Equipe.</span></h1>
+        <p class="lead">Por trás de cada estratégia, existem pessoas que acreditam no poder de uma comunicação construída com propósito.</p>
+        <p style="margin-top:16px;max-width:62ch">Nossa equipe reúne diferentes competências para compreender diferentes cenários, desenvolver soluções personalizadas e transformar planejamento em comunicação.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="wrap lead-member">
+      <div class="arch-frame"><div class="arch"><img loading="lazy" src="img/eq-mariana.jpg" alt="Mariana Bonjour"></div></div>
+      <div class="measure">
+        <div class="eyebrow">Sócia-fundadora</div>
+        <h2 style="margin-top:20px;color:var(--navy)">Mariana Bonjour</h2>
+        <p class="role">Sócia-fundadora · Consultora-chefe de Comunicação Governamental e Marketing Político</p>
+        <p>À frente da MB Consultoria e Assessoria Política, Mariana Bonjour atua no desenvolvimento de estratégias de posicionamento, reputação e comunicação para lideranças e projetos políticos.</p>
+        <p>Sua trajetória profissional reúne experiência em comunicação política e governamental, planejamento estratégico e conhecimento das dinâmicas institucionais.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk bone tight">
+    <div class="wrap"><p class="quote">{{i:quote}}<br>Não vendemos fórmulas mágicas. <span class="it">Aplicamos métodos testados e aprovados.</span></p></div>
+  </div>
+
+  <div class="blk">
+    <div class="wrap">
+      <div class="head"><div class="eyebrow">Consultores e direção de arte</div></div>
+      <div class="team" id="team"></div>
+    </div>
+  </div>
+
+  <div class="blk cta" data-cta></div>
+</section>
+
+<!-- ============ SOLUÇÕES ============ -->
+<section class="page" data-page="solucoes">
+  <div class="ph-hdr">
+    <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Nossas Soluções</div>
+        <h1>Cada projeto tem uma história. <span class="it gold-t">Cada desafio exige uma estratégia.</span></h1>
+        <p class="lead">Na MB Consultoria e Assessoria Política, desenvolvemos soluções personalizadas para diferentes momentos da vida política.</p>
+        <p style="margin-top:16px">Nossa atuação combina conhecimento político, planejamento e comunicação, oferecendo desde o acompanhamento estratégico até a execução completa das ações.</p>
+      </div>
+      <div class="arch-frame"><div class="arch"><img src="img/f-mesa.jpg" alt="Consultora trabalhando no escritório da MB"></div></div>
+    </div>
+  </div>
+
+  <nav class="subnav" aria-label="Soluções">
+    <div class="wrap">
+      <a href="#solucoes" data-anchor="s-comunicacao">Comunicação Política</a>
+      <a href="#solucoes" data-anchor="s-execucao">Consultoria e Execução</a>
+      <a href="#solucoes" data-anchor="s-treinamentos">Treinamentos e Workshops</a>
+      <a href="#solucoes" data-anchor="s-mandato">Planejamento de Mandato</a>
+      <a href="#solucoes" data-anchor="s-campanhas">Campanhas Eleitorais</a>
+    </div>
+  </nav>
+
+  <div class="blk">
+    <div class="wrap">
+      <div class="head split">
+        <div><div class="eyebrow">Consultoria</div><h2 style="margin-top:20px;color:var(--navy)">Estratégia contínua ou estratégia com execução.</h2></div>
+        <p class="mute">Você escolhe o nível de envolvimento da MB: acompanhamento estratégico, ou a estratégia somada à equipe que produz e gerencia a comunicação.</p>
+      </div>
+      <div class="compare">
+        <div id="s-comunicacao" class="anchor">
+          <span class="tag">Consultoria estratégica</span>
+          <h3>Comunicação Política</h3>
+          <p>Acompanhamento estratégico e contínuo para lideranças, mandatos, partidos e instituições que desejam construir uma comunicação consistente e alinhada aos seus objetivos.</p>
+          <p>O trabalho envolve planejamento, definição de estratégias, detalhamento de ações, posicionamento, construção de narrativas, orientação para produção de conteúdo e reuniões periódicas de alinhamento.</p>
+          <p class="deliv-h">Principais entregas</p>
+          <ul class="deliv">
+            <li>{{i:check}}Planejamento estratégico de comunicação</li>
+            <li>{{i:check}}Análise de cenário e posicionamento</li>
+            <li>{{i:check}}Construção de narrativas</li>
+            <li>{{i:check}}Direcionamento e detalhamento de ações</li>
+            <li>{{i:check}}Orientação para produção de conteúdo</li>
+            <li>{{i:check}}Reuniões de acompanhamento e alinhamento</li>
+          </ul>
+        </div>
+        <div id="s-execucao" class="exec anchor">
+          <span class="tag">Estratégia + execução</span>
+          <h3>Consultoria e Execução de Comunicação</h3>
+          <p>Para projetos que precisam de estratégia e operação integradas, a MB oferece acompanhamento estratégico aliado à execução das ações de comunicação.</p>
+          <p>Além do planejamento e direcionamento, nossa equipe desenvolve e gerencia os materiais e canais necessários para colocar a estratégia em prática.</p>
+          <p class="deliv-h">Principais entregas</p>
+          <ul class="deliv">
+            <li>{{i:check}}Planejamento e consultoria estratégica</li>
+            <li>{{i:check}}Produção de vídeos</li>
+            <li>{{i:check}}Criação de peças gráficas</li>
+            <li>{{i:check}}Gestão de redes sociais</li>
+            <li>{{i:check}}Impulsionamento e tráfego pago</li>
+            <li>{{i:check}}Assessoria de imprensa</li>
+            <li>{{i:check}}Acompanhamento e alinhamento das ações</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk bone anchor" id="s-treinamentos">
+    <div class="wrap two">
+      <div class="photo"><img loading="lazy" src="img/cba-reuniao.jpg" alt="Sala de reuniões da MB em Cuiabá"></div>
+      <div class="measure">
+        <div class="svc-ic">{{i:presentation}}</div>
+        <h2 style="color:var(--navy);margin-bottom:24px">Treinamentos e Workshops</h2>
+        <p class="lead" style="font-size:19px">A comunicação política também se fortalece por meio da preparação de pessoas e equipes.</p>
+        <p>Desenvolvemos treinamentos e workshops voltados ao aprimoramento da comunicação, ao alinhamento estratégico e à qualificação de profissionais que atuam no ambiente político e institucional.</p>
+        <p>Os conteúdos são adaptados às necessidades e aos objetivos de cada grupo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk anchor" id="s-mandato">
+    <div class="wrap two rev">
+      <div class="photo"><img loading="lazy" src="img/cba-mapa.jpg" alt="Mapa de Mato Grosso na parede da MB em Cuiabá"></div>
+      <div class="measure">
+        <div class="svc-ic">{{i:landmark}}</div>
+        <h2 style="color:var(--navy);margin-bottom:24px">Planejamento de Mandato</h2>
+        <p class="lead" style="font-size:19px">Um mandato consistente precisa de direção, organização e comunicação permanente.</p>
+        <p>A MB desenvolve planejamentos que auxiliam lideranças a organizar prioridades, definir posicionamentos e estruturar a comunicação ao longo de sua atuação parlamentar.</p>
+        <p>Nosso trabalho busca conectar os objetivos políticos às demandas da população, fortalecendo a identidade do mandato e sua relação com a sociedade.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk dark anchor" id="s-campanhas">
+    <div class="wrap">
+      <div class="head split">
+        <div><div class="svc-ic">{{i:vote}}</div><h2>Campanhas Eleitorais</h2><p class="lead" style="margin-top:22px;color:#e2dfd6">Uma campanha exige estratégia, planejamento e capacidade de execução.</p></div>
+        <div class="mute">
+          <p>A MB atua em diferentes etapas do processo eleitoral, desde a análise de cenário e construção do posicionamento até o planejamento e a execução completa da comunicação.</p>
+          <p>Desenvolvemos estratégias personalizadas que consideram a trajetória do candidato, o contexto político, os objetivos da campanha e a conexão com o eleitorado.</p>
+        </div>
+      </div>
+      <p class="deliv-h" style="margin-top:0">Nossa atuação pode envolver</p>
+      <ul class="camp-list">
+        <li>{{i:check}}Diagnóstico e análise de cenário</li>
+        <li>{{i:check}}Planejamento estratégico eleitoral</li>
+        <li>{{i:check}}Posicionamento e construção de narrativas</li>
+        <li>{{i:check}}Planejamento de comunicação</li>
+        <li>{{i:check}}Produção de conteúdo e materiais de campanha</li>
+        <li>{{i:check}}Gestão de redes sociais</li>
+        <li>{{i:check}}Tráfego pago e impulsionamento</li>
+        <li>{{i:check}}Assessoria de imprensa</li>
+        <li>{{i:check}}Acompanhamento estratégico e execução da comunicação</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="blk cta" data-cta data-title="Converse com nossos consultores." data-btn="Converse com nossos consultores"></div>
+</section>
+
+<!-- ============ EXPERIÊNCIAS ============ -->
+<section class="page" data-page="experiencias">
+  <div class="ph-hdr solo">
+    <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Clientes e Experiências</div>
+        <h1>Experiências que fazem parte <span class="it gold-t">da nossa história.</span></h1>
+        <p class="lead">Cada projeto representa um novo cenário, um desafio e uma oportunidade de construir estratégias de comunicação.</p>
+        <p style="margin-top:16px;max-width:62ch">Nossa trajetória reúne experiências com lideranças, partidos e projetos políticos que reforçam a importância de uma comunicação planejada, autêntica e conectada aos objetivos de cada cliente.</p>
+      </div>
+    </div>
+  </div>
+  <div class="blk">
+    <div class="wrap">
+      <div class="filters" id="filters" role="group" aria-label="Filtrar clientes"></div>
+      <div class="clients" id="clients"></div>
+    </div>
+  </div>
+  <div class="blk cta" data-cta></div>
+</section>
+
+<!-- ============ SEDES ============ -->
+<section class="page" data-page="sedes">
+  <div class="ph-hdr">
+    <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Nossas Sedes</div>
+        <h1>Presença estratégica em <span class="it gold-t">Cuiabá e Brasília.</span></h1>
+        <p class="lead">A MB Consultoria e Assessoria Política está presente em dois importantes centros de articulação política e institucional do país.</p>
+        <p style="margin-top:16px">Com estruturas em Cuiabá e Brasília, fortalecemos nossa presença e ampliamos as possibilidades de relacionamento, acompanhamento e desenvolvimento de projetos.</p>
+      </div>
+      <div class="arch-frame"><div class="arch"><img src="img/f-fachada-h.jpg" alt="Fachada da MB em Cuiabá" style="object-position:62% 50%"></div></div>
+    </div>
+  </div>
+
+  <div class="blk anchor" id="u-cuiaba">
+    <div class="wrap unit">
+      <div>
+        <span class="region">Cuiabá · Mato Grosso</span>
+        <h2 style="color:var(--navy)">MB Cuiabá</h2>
+        <p style="margin-top:20px">Nossa estrutura em Cuiabá representa a conexão com o cenário político regional e o desenvolvimento de projetos de comunicação e consultoria.</p>
+        <div class="addr">{{i:map-pin}}<div><b>Endereço</b>Avenida Roma, nº 19, Jardim Itália<br>Cuiabá — MT</div></div>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida%20Roma%2019%20Jardim%20It%C3%A1lia%20Cuiab%C3%A1%20MT" target="_blank" rel="noopener">Ver no mapa {{i:arrow-up-right}}</a>
+      </div>
+      <div>
+        <p class="deliv-h" style="margin:0 0 18px">Conheça a MB Cuiabá</p>
+        <div class="gallery" id="gal-cba"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk dark anchor" id="u-brasilia">
+    <div class="wrap unit">
+      <div>
+        <span class="region">Brasília · Distrito Federal</span>
+        <h2>MB Brasília</h2>
+        <p style="margin-top:20px;color:#c9cbd6">Nossa estrutura em Brasília amplia a presença institucional da consultoria na capital federal, aproximando a MB de importantes espaços de articulação política.</p>
+        <div class="addr">{{i:map-pin}}<div><b>Endereço</b>Edifício Terra Brasilis<br>SAUS, Quadra 1, Bloco N, Sala 712 — Asa Sul<br>Brasília — DF</div></div>
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Edif%C3%ADcio%20Terra%20Brasilis%20SAUS%20Quadra%201%20Bloco%20N%20Bras%C3%ADlia" target="_blank" rel="noopener">Ver no mapa {{i:arrow-up-right}}</a>
+      </div>
+      <div>
+        <p class="deliv-h" style="margin:0 0 18px">Conheça a MB Brasília</p>
+        <div class="gallery">
+          <div class="empty g-a"><div>{{i:building-2}}Fotos do escritório de Brasília</div></div>
+          <div class="empty g-b"><div>Ambiente interno</div></div>
+          <div class="empty g-c"><div>Sala de reunião</div></div>
+          <div class="empty g-c"><div>Recepção</div></div>
+          <div class="empty g-c"><div>Fachada</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blk cta" data-cta data-title="Agende uma visita ou uma conversa." data-btn="Agende uma conversa com a MB"></div>
+</section>
+
+<!-- ============ CONTEÚDOS ============ -->
+<section class="page" data-page="conteudos">
+  <div class="ph-hdr solo">
+    <img loading="lazy" class="hero-mark" src="img/logo-simbolo.png" alt="">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Conteúdos e Análises</div>
+        <h1>A política está em constante movimento. <span class="it gold-t">Nossa análise também.</span></h1>
+        <p class="lead">Acompanhe reflexões, tendências e conteúdos sobre comunicação política, marketing eleitoral, gestão pública e posicionamento.</p>
+        <p style="margin-top:16px;max-width:62ch">Um espaço para compartilhar conhecimento, interpretar cenários e discutir os desafios da comunicação no ambiente político.</p>
+      </div>
+    </div>
+  </div>
+  <div class="blk">
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filtrar conteúdos">
+        <button class="chip" aria-pressed="true" type="button">Todos</button>
+        <button class="chip" aria-pressed="false" type="button">Artigos</button>
+        <button class="chip" aria-pressed="false" type="button">Cases</button>
+        <button class="chip" aria-pressed="false" type="button">Redes sociais</button>
+      </div>
+      <p class="model-note">{{i:calendar}}Modelo de publicação: os primeiros conteúdos entram aqui</p>
+      <div class="posts">
+        <article class="post"><div class="img"><img loading="lazy" src="img/f-detalhe.jpg" alt="" style="object-position:50% 40%"></div><div class="meta"><span>Comunicação política</span><span>{{i:calendar}}dd/mm/aaaa</span></div><h3>Título do artigo</h3><p>Breve descrição do conteúdo.</p><a class="link" href="#conteudos">Leia mais {{i:arrow-right}}</a></article>
+        <article class="post"><div class="img"><img loading="lazy" src="img/cba-estante.jpg" alt=""></div><div class="meta"><span>Marketing eleitoral</span><span>{{i:calendar}}dd/mm/aaaa</span></div><h3>Título do artigo</h3><p>Breve descrição do conteúdo.</p><a class="link" href="#conteudos">Leia mais {{i:arrow-right}}</a></article>
+        <article class="post"><div class="img"><img loading="lazy" src="img/cba-certificados.jpg" alt=""></div><div class="meta"><span>Reputação</span><span>{{i:calendar}}dd/mm/aaaa</span></div><h3>Título do artigo</h3><p>Breve descrição do conteúdo.</p><a class="link" href="#conteudos">Leia mais {{i:arrow-right}}</a></article>
+      </div>
+    </div>
+  </div>
+  <div class="blk bone tight">
+    <div class="wrap">
+      <div class="insta">
+        <div><div class="eyebrow">Redes sociais</div><h2 style="color:var(--navy);margin-top:16px;font-size:clamp(30px,3.4vw,44px)">Acompanhe a MB no Instagram</h2><p class="mute" style="margin-top:10px">@mbconsultoriapolitica</p></div>
+        <a class="btn btn-navy" href="https://www.instagram.com/mbconsultoriapolitica/" target="_blank" rel="noopener">{{b:instagram}} Seguir no Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="page" data-page="contato">
+  <div class="contact">
+    <div class="side">
+      <div class="eyebrow">Contato</div>
+      <h1>Vamos construir sua próxima <span class="it gold-t">estratégia?</span></h1>
+      <p class="lead" style="font-size:19px;color:#e2dfd6">Toda boa comunicação começa com uma conversa.</p>
+      <p style="margin-top:14px">Entre em contato com a equipe da MB Consultoria e Assessoria Política e descubra como podemos contribuir para o desenvolvimento do seu projeto.</p>
+      <p class="deliv-h" style="margin-top:44px">Contato comercial</p>
+      <ul class="clist" style="margin-top:14px">
+        <li>{{b:whatsapp}}<div><small>Telefone / WhatsApp</small><a href="https://wa.me/5565981157076" target="_blank" rel="noopener">(65) 98115-7076</a></div></li>
+        <li>{{i:mail}}<div><small>E-mail</small><a href="mailto:marianabonjour@mbconsultoriapolitica.com">marianabonjour@mbconsultoriapolitica.com</a></div></li>
+        <li>{{b:instagram}}<div><small>Instagram</small><a href="https://www.instagram.com/mbconsultoriapolitica/" target="_blank" rel="noopener">@mbconsultoriapolitica</a></div></li>
+        <li>{{b:linkedin}}<div><small>LinkedIn</small><span class="mute">Link a inserir</span></div></li>
+      </ul>
+      <p class="deliv-h" style="margin-top:40px">Nossas unidades</p>
+      <div class="units-mini" style="margin-top:14px">
+        <div><b>Cuiabá — MT</b>Avenida Roma, nº 19, Jardim Itália.</div>
+        <div><b>Brasília — DF</b>Edifício Terra Brasilis, SAUS, Quadra 1, Bloco N, Sala 712 — Asa Sul.</div>
+      </div>
+    </div>
+    <div class="formside">
+      <h2>Agende uma conversa com a MB</h2>
+      <p class="mute">Preencha os campos e nossa equipe retorna o contato.</p>
+      <form id="form" novalidate>
+        <div class="f full"><label for="f-nome">Nome completo</label><input id="f-nome" name="nome" autocomplete="name" required></div>
+        <div class="f"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="f"><label for="f-tel">Telefone / WhatsApp</label><input id="f-tel" name="telefone" type="tel" autocomplete="tel" required></div>
+        <div class="f"><label for="f-inst">Instituição ou projeto</label><input id="f-inst" name="instituicao"></div>
+        <div class="f"><label for="f-assunto">Assunto</label>
+          <select id="f-assunto" name="assunto">
+            <option>Comunicação Política</option>
+            <option>Consultoria e Execução</option>
+            <option>Treinamentos e Workshops</option>
+            <option>Planejamento de Mandato</option>
+            <option>Campanhas Eleitorais</option>
+            <option>Outro assunto</option>
+          </select></div>
+        <div class="f full"><label for="f-msg">Mensagem</label><textarea id="f-msg" name="mensagem"></textarea></div>
+        <label class="consent" for="f-ok"><input type="checkbox" id="f-ok" required><span>Concordo com o uso dos meus dados para retorno do contato, conforme a <a href="#privacidade">Política de Privacidade</a>.</span></label>
+        <div style="grid-column:1/-1"><button class="btn btn-navy" type="submit">Agende uma conversa com a MB {{i:arrow-right}}</button></div>
+        <div class="formmsg" id="formmsg" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIVACIDADE ============ -->
+<section class="page" data-page="privacidade">
+  <div class="ph-hdr solo"><div class="wrap"><div><div class="eyebrow">Institucional</div><h1>Política de Privacidade</h1></div></div></div>
+  <div class="blk">
+    <div class="wrap legal">
+      <p class="pending">O texto da Política de Privacidade será fornecido pela MB Consultoria e Assessoria Política. Ele deve explicar quais dados o formulário de contato coleta, para que são usados, por quanto tempo ficam guardados e como o titular pode pedir a exclusão, conforme a LGPD.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <img loading="lazy" src="img/logo-bloco.png" alt="MB Consultoria & Assessoria Política" width="900" height="646">
+        <p class="tagline">Comunicação política com propósito. Estratégia que aproxima.</p>
+        <p>Consultoria especializada em Comunicação Governamental e Marketing Político.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/mbconsultoriapolitica/" target="_blank" rel="noopener" aria-label="Instagram">{{b:instagram}}</a>
+          <a href="#contato" aria-label="LinkedIn (link a inserir)">{{b:linkedin}}</a>
+          <a href="https://wa.me/5565981157076" target="_blank" rel="noopener" aria-label="WhatsApp">{{b:whatsapp}}</a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#quem-somos">Quem Somos</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#solucoes">Nossos Serviços</a></li>
+          <li><a href="#experiencias">Clientes e Experiências</a></li>
+          <li><a href="#sedes">Nossas Sedes</a></li>
+          <li><a href="#conteudos">Conteúdos e Análises</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Unidades</h4>
+        <address><b>Cuiabá — MT</b>Avenida Roma, nº 19, Jardim Itália.</address>
+        <address><b>Brasília — DF</b>Edifício Terra Brasilis, SAUS, Quadra 1, Bloco N, Sala 712 — Asa Sul.</address>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5565981157076" target="_blank" rel="noopener">(65) 98115-7076</a></li>
+          <li style="word-break:break-all">marianabonjour@mbconsultoriapolitica.com</li>
+          <li>Instagram: @mbconsultoriapolitica</li>
+          <li>LinkedIn: link a inserir</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fb">
+      <span>© 2026 MB Consultoria e Assessoria Política. Todos os direitos reservados.</span>
+      <a href="#privacidade">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5565981157076" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">{{b:whatsapp}}</a>
+
+<dialog id="bioDlg" aria-labelledby="bioName"><div class="bio"><div class="p"><img id="bioImg" alt=""></div><div class="t"><button class="x" type="button" data-close aria-label="Fechar">{{i:x}}</button><div class="eyebrow">Equipe MB</div><h3 id="bioName" style="margin-top:18px"></h3><p class="role" id="bioRole"></p><div id="bioText"></div></div></div></dialog>
+
+<dialog id="lbDlg" aria-label="Galeria de fotos"><div class="lb"><img id="lbImg" alt=""><button class="x" type="button" data-close aria-label="Fechar">{{i:x}}</button><button class="nv prev" type="button" id="lbPrev" aria-label="Foto anterior">{{i:chevron-left}}</button><button class="nv next" type="button" id="lbNext" aria-label="Próxima foto">{{i:chevron-right}}</button><p id="lbCap"></p></div></dialog>
+
+<template id="ctaTpl">
+  <img loading="lazy" class="bg" src="img/cba-lounge.jpg" alt="">
+  <div class="wrap">
+    <div><div class="eyebrow">Contato</div><h2 data-t>Vamos construir sua próxima estratégia?</h2><p style="color:#c9cbd6;max-width:52ch">Toda boa comunicação começa com uma conversa.</p></div>
+    <div class="btns"><a class="btn btn-gold" href="#contato" data-b>Agende uma conversa com a MB {{i:arrow-right}}</a><a class="btn btn-line" href="https://wa.me/5565981157076" target="_blank" rel="noopener">{{b:whatsapp}} WhatsApp</a></div>
+  </div>
+</template>
+
+<script>
+(function(){
+  var ARROW = document.querySelector('#ctaTpl').content.querySelector('[data-b] svg').outerHTML;
+  // CTA blocks
+  document.querySelectorAll('[data-cta]').forEach(function(el){
+    el.appendChild(document.getElementById('ctaTpl').content.cloneNode(true));
+    if(el.dataset.title) el.querySelector('[data-t]').textContent = el.dataset.title;
+    if(el.dataset.btn) el.querySelector('[data-b]').innerHTML = el.dataset.btn + ' ' + ARROW;
+  });
+
+  // Clients
+  var clients = [
+    {n:'Jayme Campos', c:'Senador', g:'senado', img:'c-jayme-campos'},
+    {n:'Blairo Maggi', c:'Senador', g:'senado', img:'c-blairo-maggi'},
+    {n:'Cidinho Santos', c:'Senador', g:'senado', img:'c-cidinho-santos'},
+    {n:'Juarez Costa', c:'Deputado Federal', g:'deputados', img:'c-juarez-costa'},
+    {n:'Coronel Fernanda', c:'Deputada Federal', g:'deputados', img:'c-coronel-fernanda'},
+    {n:'Rafael Brito', c:'Deputado Federal', g:'deputados', img:'c-rafael-brito'},
+    {n:'Valmir Moretto', c:'Deputado Estadual', g:'deputados', img:'c-valmir-moretto'},
+    {n:'João Bang', c:'Prefeito', g:'prefeitos', img:'c-joao-bang'},
+    {n:'Passarinho', c:'Prefeito', g:'prefeitos', img:'c-passarinho'},
+    {n:'Edemilson Marino', c:'Prefeito', g:'prefeitos', img:'c-edemilson-marino'},
+    {n:'Max Russi', c:'Imagem a inserir', g:'outros'},
+    {n:'Janaina Riva', c:'Imagem a inserir', g:'outros'},
+    {n:'Wilson Santos', c:'Imagem a inserir', g:'outros'},
+    {n:'Podemos / MT', c:'Imagem a inserir', g:'partidos'}
+  ];
+  function card(x){
+    if(x.img) return '<figure class="client"><img loading="lazy" src="img/'+x.img+'.jpg" alt="'+x.n+', '+x.c+'"></figure>';
+    return '<figure class="client ph"><b>'+x.n+'</b><small>'+x.c+'</small></figure>';
+  }
+  document.getElementById('homeStrip').innerHTML = clients.filter(function(x){return x.img}).map(card).join('');
+  var groups = [['todos','Todos'],['senado','Senadores'],['deputados','Deputados'],['prefeitos','Prefeitos'],['partidos','Partidos'],['outros','Outros projetos']];
+  var fEl = document.getElementById('filters'), cEl = document.getElementById('clients');
+  fEl.innerHTML = groups.map(function(g,i){return '<button type="button" class="chip" data-g="'+g[0]+'" aria-pressed="'+(i===0)+'">'+g[1]+'</button>'}).join('');
+  function renderClients(g){ cEl.innerHTML = clients.filter(function(x){return g==='todos'||x.g===g}).map(card).join(''); }
+  fEl.addEventListener('click', function(e){
+    var b = e.target.closest('.chip'); if(!b) return;
+    fEl.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed', c===b)});
+    renderClients(b.dataset.g);
+  });
+  renderClients('todos');
+  document.querySelectorAll('[data-page="conteudos"] .filters').forEach(function(f){
+    f.addEventListener('click', function(e){var b=e.target.closest('.chip'); if(!b) return; f.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed', c===b)});});
+  });
+
+  // Team
+  var MORE = '{{i:arrow-up-right}}';
+  var team = [
+    {n:'Felipe Fabre Figueiredo', r:'Consultor de Comunicação Governamental e Marketing Político', img:'eq-felipe',
+     b:['Integra a equipe de consultoria da MB, contribuindo para o desenvolvimento de estratégias, organização de projetos e acompanhamento de demandas de comunicação política e governamental.','Sua atuação combina capacidade analítica, organização e compreensão das dinâmicas do ambiente político.']},
+    {n:'Hortência Bragatto Vastos', r:'Consultora de Comunicação Governamental e Marketing Político', img:'eq-hortencia',
+     b:['Atua no planejamento e acompanhamento de projetos de comunicação política e governamental, contribuindo para análises de cenário, organização estratégica e desenvolvimento de soluções de comunicação.','Sua atuação valoriza o relacionamento interpessoal, a escuta e a compreensão das particularidades de cada cliente.']},
+    {n:'Joe Marcelo Siqueira Vidal', r:'Diretor de Arte', img:'eq-joe',
+     b:['Responsável pela direção de arte dos projetos da MB, contribuindo para o desenvolvimento de soluções visuais alinhadas às estratégias de comunicação.','Seu trabalho conecta criatividade, identidade visual e posicionamento, transformando conceitos estratégicos em materiais de comunicação.']}
+  ];
+  var tEl = document.getElementById('team');
+  tEl.innerHTML = team.map(function(m,i){
+    return '<button class="member" type="button" data-i="'+i+'"><div class="arch"><img loading="lazy" src="img/'+m.img+'.jpg" alt="'+m.n+'"></div><h3>'+m.n+'</h3><p class="role">'+m.r+'</p><span class="more">Ver biografia '+MORE+'</span></button>';
+  }).join('');
+  var bio = document.getElementById('bioDlg');
+  tEl.addEventListener('click', function(e){
+    var b = e.target.closest('.member'); if(!b) return;
+    var m = team[+b.dataset.i];
+    document.getElementById('bioImg').src = 'img/'+m.img+'.jpg';
+    document.getElementById('bioImg').alt = m.n;
+    document.getElementById('bioName').textContent = m.n;
+    document.getElementById('bioRole').textContent = m.r;
+    document.getElementById('bioText').innerHTML = m.b.map(function(p){return '<p>'+p+'</p>'}).join('');
+    bio.showModal();
+  });
+
+  // Gallery Cuiabá
+  var gal = [
+    ['cba-fachada','Fachada','g-a'],['cba-recepcao','Recepção','g-b'],['cba-sala-direcao','Sala de direção','g-c'],
+    ['cba-reuniao','Sala de reunião','g-c'],['cba-lounge','Espaço de convivência','g-c'],['cba-fachada-logo','Fachada','g-c'],
+    ['cba-estante','Estante','g-c'],['cba-equipe-sala','Sala da equipe','g-c'],['cba-reuniao-2','Sala de reunião','g-c'],
+    ['cba-lounge-2','Espaço de convivência','g-c'],['cba-certificados','Reconhecimentos','g-c']
+  ];
+  document.getElementById('gal-cba').innerHTML = gal.map(function(g,i){
+    return '<button type="button" class="'+g[2]+'" data-i="'+i+'" aria-label="Ampliar foto: '+g[1]+'"><img loading="lazy" src="img/'+g[0]+'.jpg" alt="'+g[1]+' da MB Cuiabá"></button>';
+  }).join('');
+  var lb = document.getElementById('lbDlg'), cur = 0;
+  function show(i){ cur = (i+gal.length)%gal.length; document.getElementById('lbImg').src='img/'+gal[cur][0]+'.jpg'; document.getElementById('lbImg').alt=gal[cur][1]; document.getElementById('lbCap').textContent = gal[cur][1]+' · MB Cuiabá · '+(cur+1)+' de '+gal.length; }
+  document.getElementById('gal-cba').addEventListener('click', function(e){ var b=e.target.closest('button'); if(!b) return; show(+b.dataset.i); lb.showModal(); });
+  document.getElementById('lbPrev').onclick = function(){show(cur-1)};
+  document.getElementById('lbNext').onclick = function(){show(cur+1)};
+  lb.addEventListener('keydown', function(e){ if(e.key==='ArrowLeft') show(cur-1); if(e.key==='ArrowRight') show(cur+1); });
+  document.querySelectorAll('dialog').forEach(function(d){
+    d.addEventListener('click', function(e){ if(e.target===d || e.target.closest('[data-close]')) d.close(); });
+  });
+
+  // Form
+  document.getElementById('form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = e.target, msg = document.getElementById('formmsg');
+    var missing = ['f-nome','f-email','f-tel'].filter(function(id){return !document.getElementById(id).value.trim()});
+    if(missing.length){ msg.textContent = 'Preencha nome, e-mail e telefone para enviar.'; msg.classList.add('show'); document.getElementById(missing[0]).focus(); return; }
+    if(!document.getElementById('f-ok').checked){ msg.textContent = 'Marque o aceite da Política de Privacidade para enviar.'; msg.classList.add('show'); return; }
+    var txt = 'Olá, MB! Sou '+f.nome.value+(f.instituicao.value?' ('+f.instituicao.value+')':'')+'. Assunto: '+f.assunto.value+'. '+f.mensagem.value;
+    msg.innerHTML = 'Esta é a versão de apresentação do site: o envio por e-mail será ativado na publicação. Enquanto isso, você pode <a href="https://wa.me/5565981157076?text='+encodeURIComponent(txt)+'" target="_blank" rel="noopener">enviar a mesma mensagem pelo WhatsApp</a>.';
+    msg.classList.add('show');
+  });
+
+  // Router
+  var pages = Array.prototype.map.call(document.querySelectorAll('section.page'), function(s){return s.dataset.page});
+  var nav = document.getElementById('nav'), menuBtn = document.getElementById('menuBtn');
+  var pendingAnchor = null;
+  function route(){
+    var h = (location.hash||'').slice(1); if(pages.indexOf(h)<0) h='home';
+    document.querySelectorAll('section.page').forEach(function(s){ s.classList.toggle('on', s.dataset.page===h); });
+    nav.querySelectorAll('a').forEach(function(a){ if(a.getAttribute('href')==='#'+h) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+    nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false');
+    var T={'quem-somos':'Quem Somos','equipe':'Equipe','solucoes':'Soluções','experiencias':'Experiências','sedes':'Sedes','conteudos':'Conteúdos','contato':'Contato','privacidade':'Política de Privacidade'};
+    document.title = h==='home' ? 'MB Consultoria e Assessoria Política' : T[h]+' · MB Consultoria e Assessoria Política';
+    if(pendingAnchor){ var t=document.getElementById(pendingAnchor); pendingAnchor=null; if(t){ setTimeout(function(){t.scrollIntoView({behavior:'smooth'})},60); return; } }
+    window.scrollTo(0,0);
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[data-anchor]'); if(!a) return;
+    pendingAnchor = a.dataset.anchor;
+    if(location.hash === a.getAttribute('href')){ e.preventDefault(); route(); }
+  });
+  window.addEventListener('hashchange', route);
+  menuBtn.addEventListener('click', function(){ var o = nav.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); });
+  route();
+})();
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script defer src="motion.js"></script>
+</body>
+</html>

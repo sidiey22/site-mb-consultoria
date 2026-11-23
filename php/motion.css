@@ -1,0 +1,84 @@
+/* =====================================================================
+   MB Consultoria · motion.css
+   Só efeitos: não muda texto, estrutura, cores nem layout.
+   Duração e intensidade ficam no topo do motion.js.
+   Tudo aqui é escopado em html.mb-js (classe posta pelo script do <head>),
+   então sem JavaScript o site aparece exatamente como era.
+   ===================================================================== */
+
+/* ---------- Lenis (rolagem suave) ---------- */
+html.lenis, html.lenis body { height: auto; }
+html.lenis { scroll-behavior: auto !important; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: clip; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+/* ---------- Trava de rolagem durante o preloader ---------- */
+html.mb-lock { overflow: hidden; }
+
+/* ---------- Anti-flash: o conteúdo só aparece quando o motion.js assume ----------
+   Se o JS falhar, o CSS libera sozinho em 3,2s. */
+html.mb-js:not(.mb-ready) main { opacity: 0; animation: mbShow 0s linear 3.2s forwards; }
+@keyframes mbShow { to { opacity: 1; } }
+
+/* A entrada de página antiga (fade de 0,5s) é substituída pelo motion. */
+html.mb-js section.page.on { animation: none; }
+
+/* ---------- Preloader ---------- */
+.mb-pre {
+  position: fixed; inset: 0; z-index: 200;
+  display: grid; place-items: center;
+  background: #0f1630; /* mesmo azul-marinho do hero (--navy-deep) */
+  /* Sem JS: some sozinho em 4s */
+  animation: mbPreOut 0s linear 4s forwards;
+}
+@keyframes mbPreOut { to { visibility: hidden; opacity: 0; } }
+html.mb-pre-seen .mb-pre { display: none; }
+.mb-pre-in { display: grid; justify-items: center; gap: 34px; padding: 24px; }
+.mb-pre-logo { width: min(240px, 56vw); height: auto; opacity: 0; filter: blur(12px); }
+.mb-pre-line { width: min(220px, 52vw); height: 1px; background: rgba(242, 196, 126, .22); overflow: hidden; }
+.mb-pre-line i {
+  display: block; height: 100%;
+  background: linear-gradient(100deg, #ba9357 0%, #f7c67d 100%);
+  transform: scaleX(0); transform-origin: left center;
+}
+
+/* ---------- Imagens com parallax ----------
+   A foto fica 14% mais alta que a moldura e se move dentro dela. */
+.mb-js .mb-px { position: relative; overflow: hidden; }
+.mb-js .hero-bg.mb-px { position: absolute; }  /* o fundo do hero continua cobrindo a dobra */
+.mb-js .mb-px > img {
+  position: absolute; left: 0; top: -7%;
+  width: 100%; height: 114%; object-fit: cover;
+}
+
+/* ---------- Hover: zoom 1.04 + leve elevação ----------
+   O zoom usa a propriedade `scale` (separada do `transform` do GSAP),
+   então os dois efeitos se somam sem brigar. */
+.mb-js .client-card .ph img,
+.mb-js .place-card .ph img,
+.mb-js .post .ph img,
+.mb-js .member .ph img,
+.mb-js .gallery img { transition: scale .7s cubic-bezier(.2, .7, .2, 1); }
+
+.mb-js .client-card:hover .ph img,
+.mb-js .place-card:hover .ph img,
+.mb-js .post:hover .ph img,
+.mb-js .member:hover .ph img,
+.mb-js .gallery button:hover img { transform: none; scale: 1.04; }
+
+.mb-js .place-card, .mb-js .post, .mb-js .member, .mb-js .gallery button { transition: translate .5s cubic-bezier(.2, .7, .2, 1), background .35s, border-color .35s, box-shadow .35s; }
+.mb-js .place-card:hover, .mb-js .post:hover, .mb-js .member:hover { translate: 0 -4px; }
+.mb-js .gallery button:hover { translate: 0 -3px; }
+
+/* Faixa de serviços: parada no movimento reduzido */
+@media (prefers-reduced-motion: reduce) { .marquee .track { animation: none !important; } }
+
+/* ---------- Movimento reduzido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  .mb-js .place-card, .mb-js .post, .mb-js .member, .mb-js .gallery button,
+  .mb-js .client-card .ph img, .mb-js .place-card .ph img, .mb-js .post .ph img,
+  .mb-js .member .ph img, .mb-js .gallery img { transition: none; }
+  .mb-js .place-card:hover, .mb-js .post:hover, .mb-js .member:hover, .mb-js .gallery button:hover { translate: none; }
+}
