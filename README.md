@@ -6,3 +6,8 @@
 - `site/`: versão estática para aprovação. `php/`: pacote de produção.
 
 Nunca coloque a senha real do banco no `php/inc/config.php` dentro do GitHub: preencha só no servidor.
+
+## Publicação automática
+Cada envio para a branch `main` que altera `php/` publica o site na HostGator (GitHub Actions, via FTP).
+Segredos necessários no repositório: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`.
+O `inc/config.php` real fica só no servidor (use `inc/config.sample.php` como modelo).

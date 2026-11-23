@@ -1,0 +1,40 @@
+name: Publicar site na HostGator
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'php/**'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostgator
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Enviar por FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Enviar a pasta php/ para o site
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./php/
+          server-dir: ./
+          # Nunca enviar o que é do servidor: senha do banco, fotos enviadas pelo painel, trava e logs.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            inc/config.php
+            inc/installed.lock
+            inc/logs/**
+            install.php
+            uploads/20*/**

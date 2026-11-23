@@ -17,3 +17,6 @@ php/inc/logs/
 # backups locais do código-fonte
 src/*.before-*.html
 __pycache__/
+
+# senha real do banco: nunca vai para o GitHub
+php/inc/config.php
