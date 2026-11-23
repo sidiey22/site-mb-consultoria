@@ -15,8 +15,8 @@ $h = base_path() . '/';
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= e(url('css/site.css')) ?>">
-<link rel="stylesheet" href="<?= e(url('css/cms.css')) ?>">
+<link rel="stylesheet" href="<?= e(asset('css/site.css')) ?>">
+<link rel="stylesheet" href="<?= e(asset('css/cms.css')) ?>">
 </head>
 <body>
 <?php include __DIR__ . '/inc/partials/header.php'; ?>
@@ -32,6 +32,6 @@ $h = base_path() . '/';
   </div>
 </main>
 <?php include __DIR__ . '/inc/partials/footer.php'; ?>
-<script defer src="<?= e(url('js/cms.js')) ?>"></script>
+<script defer src="<?= e(asset('js/cms.js')) ?>"></script>
 </body>
 </html>

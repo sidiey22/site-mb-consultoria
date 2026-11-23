@@ -223,8 +223,8 @@ function render_article_page(array $a, bool $preview = false): void
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= e(url('css/site.css')) ?>">
-<link rel="stylesheet" href="<?= e(url('css/cms.css')) ?>">
+<link rel="stylesheet" href="<?= e(asset('css/site.css')) ?>">
+<link rel="stylesheet" href="<?= e(asset('css/cms.css')) ?>">
 </head>
 <body class="art-page">
 <?php if ($preview): ?><div class="preview-bar">Pré-visualização — este artigo ainda não está publicado.</div><?php endif; ?>
@@ -314,7 +314,7 @@ function render_article_page(array $a, bool $preview = false): void
 <?php include __DIR__ . '/partials/cta.php'; ?>
 </main>
 <?php include __DIR__ . '/partials/footer.php'; ?>
-<script defer src="<?= e(url('js/cms.js')) ?>"></script>
+<script defer src="<?= e(asset('js/cms.js')) ?>"></script>
 </body>
 </html>
 <?php

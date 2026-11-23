@@ -30,6 +30,13 @@ function url(string $path = ''): string
     return base_path() . '/' . ltrim($path, '/');
 }
 
+/** URL de arquivo estático com versão (muda quando o arquivo muda: o navegador não usa cópia antiga). */
+function asset(string $path): string
+{
+    $f = MB_ROOT . '/' . ltrim($path, '/');
+    return url($path) . (is_file($f) ? '?v=' . filemtime($f) : '');
+}
+
 /** URL absoluta (para e-mails, sitemap, Open Graph). */
 function abs_url(string $path = ''): string
 {
