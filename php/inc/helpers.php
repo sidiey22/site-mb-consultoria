@@ -15,17 +15,6 @@ function base_path(): string
     static $b = null;
     if ($b !== null) { return $b; }
     $b = '';
-    // 1) Mais confiável: compara o script atual com a URL pedida (funciona em domínio adicional, subpasta, symlink)
-    $sf = isset($_SERVER['SCRIPT_FILENAME']) ? realpath((string)$_SERVER['SCRIPT_FILENAME']) : false;
-    $rt = realpath(MB_ROOT);
-    $sn = (string)($_SERVER['SCRIPT_NAME'] ?? '');
-    if ($sf && $rt && strpos($sf, $rt . DIRECTORY_SEPARATOR) === 0 && $sn !== '') {
-        $rel = '/' . str_replace('\\', '/', substr($sf, strlen($rt) + 1));
-        if (substr($sn, -strlen($rel)) === $rel) {
-            $b = rtrim(substr($sn, 0, -strlen($rel)), '/');
-            return $b;
-        }
-    }
     $doc = isset($_SERVER['DOCUMENT_ROOT']) ? realpath((string)$_SERVER['DOCUMENT_ROOT']) : false;
     $root = realpath(MB_ROOT);
     if ($doc && $root && strpos($root, $doc) === 0) {
