@@ -607,13 +607,13 @@ setTimeout(function(){d.classList.remove('mb-lock')},4000);})();
     {n:'Coronel Fernanda', c:'Deputada Federal', g:'deputados', img:'c-coronel-fernanda'},
     {n:'Rafael Brito', c:'Deputado Federal', g:'deputados', img:'c-rafael-brito'},
     {n:'Valmir Moretto', c:'Deputado Estadual', g:'deputados', img:'c-valmir-moretto'},
+    {n:'Max Russi', c:'Deputado Estadual', g:'deputados', img:'c-max-russi'},
+    {n:'Wilson Santos', c:'Deputado Estadual', g:'deputados', img:'c-wilson-santos'},
+    {n:'Janaina Riva', c:'Deputada Estadual', g:'deputados', img:'c-janaina-riva'},
     {n:'João Bang', c:'Prefeito', g:'prefeitos', img:'c-joao-bang'},
     {n:'Passarinho', c:'Prefeito', g:'prefeitos', img:'c-passarinho'},
     {n:'Edemilson Marino', c:'Prefeito', g:'prefeitos', img:'c-edemilson-marino'},
-    {n:'Max Russi', c:'Imagem a inserir', g:'outros'},
-    {n:'Janaina Riva', c:'Imagem a inserir', g:'outros'},
-    {n:'Wilson Santos', c:'Imagem a inserir', g:'outros'},
-    {n:'Podemos / MT', c:'Imagem a inserir', g:'partidos'}
+    {n:'Podemos / MT', c:'Partido', g:'partidos', img:'c-podemos'}
   ];
   function card(x){
     if(x.img) return '<figure class="client-card"><div class="ph"><img loading="lazy" src="img/'+x.img+'.jpg" alt="'+x.n+', '+x.c+'"></div></figure>';
