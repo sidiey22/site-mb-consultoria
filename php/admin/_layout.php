@@ -50,6 +50,11 @@ function admin_head(string $title, string $active, array $u, string $extraHead =
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="<?= e(url('favicon.ico')) ?>" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="<?= e(url('img/favicon-32.png')) ?>">
+<link rel="apple-touch-icon" href="<?= e(url('img/apple-touch-icon.png')) ?>">
+<meta name="theme-color" content="#101c46">
+
 <meta name="robots" content="noindex,nofollow">
 <title><?= e($title) ?> · Painel MB</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,6 +113,11 @@ function auth_head(string $title): void
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="<?= e(url('favicon.ico')) ?>" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="<?= e(url('img/favicon-32.png')) ?>">
+<link rel="apple-touch-icon" href="<?= e(url('img/apple-touch-icon.png')) ?>">
+<meta name="theme-color" content="#101c46">
+
 <meta name="robots" content="noindex,nofollow">
 <title><?= e($title) ?> · Painel MB</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">

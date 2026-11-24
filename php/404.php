@@ -10,6 +10,11 @@ $h = base_path() . '/';
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="<?= e(url('favicon.ico')) ?>" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="<?= e(url('img/favicon-32.png')) ?>">
+<link rel="apple-touch-icon" href="<?= e(url('img/apple-touch-icon.png')) ?>">
+<meta name="theme-color" content="#101c46">
+
 <meta name="robots" content="noindex">
 <title>Página não encontrada · MB Consultoria e Assessoria Política</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
